@@ -84,7 +84,7 @@
     </div>
     <p class="t-body alt-not" data-step="1">Tek bir işleme hızı hepsine yetmez: <b>akış</b> da <b>toplu iş</b> de gerekiyor.</p>
     <p class="src">Kaynak: vaka metni; kabul ölçütleri Veri Mimarı raporu, G1.</p>
-    <aside class="notes">TazeRota'nın beş iş sorusu var ve her birinin beklediği hız çok farklı. Soğuk zincir alarmı otuz saniye içinde gelmeli; raf boşluğu on beş dakikada; geri çağırmada iki saat içinde hangi lotun nereye gittiğini bilmeliyiz. Talep tahmini her gece sabah dörde kadar hazır olmalı, promosyon etkisi haftalık. Bu yüzden <b>tek bir işleme hızı yetmiyor</b>: hem akış hem toplu iş gerekiyor.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: G1: her iş sorununu veri gereksinimine çevir: kaynak, gecikme, doğruluk, kullanıcı. TazeRota'nın beş iş sorusu var ve her birinin beklediği hız çok farklı. Soğuk zincir alarmı otuz saniye içinde gelmeli; raf boşluğu on beş dakikada; geri çağırmada iki saat içinde hangi lotun nereye gittiğini bilmeliyiz. Talep tahmini her gece sabah dörde kadar hazır olmalı, promosyon etkisi haftalık. Bu yüzden <b>tek bir işleme hızı yetmiyor</b>: hem akış hem toplu iş gerekiyor.</aside>
   </section>
 
   <section class="slide" data-title="Kaynaklar" data-duration="55">
@@ -228,7 +228,7 @@
     <p class="sema-yol" data-step="4-4"><b>Analitik:</b> Bronze → Silver → Gold → Trino, tahmin her gece, promosyon haftalık</p>
     <p class="secmedik sabit"><b>Seçmediğimiz:</b> saf Lambda, kurallar iki kez yazılır; Kappa, <span class="t-num" data-num="hacim.ham"></span> TB'ı Kafka'dan yeniden oynatmak pratik değil.</p>
     <p class="src">İşleme ve sunum soluk: bu denetimin kapsamı dışında. Noktaların yoğunluğu ileti hızının kareköküyle orantılı.</p>
-    <aside class="notes">Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Oklardaki noktalar gerçek ileti hızlarıyla akıyor. Bayramda hız dört katına çıkıyor: telemetri saniyede 110 iletiden 440'a; Kafka bu yüzden tepe hıza göre boyutlandırıldı. Şimdi üç yolu tek tek gösteriyorum: <b>operasyonel</b> yol alarmı saniyeler içinde verir, <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar, <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: G3: Lambda, Kappa, lakehouse arasından seç, seçmediklerini gerekçelendir; tek sayfalık şema. Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Oklardaki noktalar gerçek ileti hızlarıyla akıyor. Bayramda hız dört katına çıkıyor: telemetri saniyede 110 iletiden 440'a; Kafka bu yüzden tepe hıza göre boyutlandırıldı. Şimdi üç yolu tek tek gösteriyorum: <b>operasyonel</b> yol alarmı saniyeler içinde verir, <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar, <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır.</aside>
   </section>
 
   <section class="slide night" data-title="Bölüm: Sabit" data-duration="20" data-transition="iris">
@@ -276,7 +276,7 @@
     </div>
     <p class="secmedik" data-step="2"><b>Seçmediğimiz:</b> Sqoop, toplu kopyalar ve geri çağırmanın 2 saatine yetişmez; Flume, sunucu günlüğü içindir, bizde öyle bir kaynak yok.</p>
     <p class="src">Platformlar: MQTT aracısı, Kafka + Kafka Connect, NiFi. Kaynak: G4 veri alımı.</p>
-    <aside class="notes">Dokuz kaynağın her biri geliş şekline göre <b>dört yoldan</b> birine giriyor. Araç ve sensör sürekli akıyor: ileti kuyruğu. ERP canlı veritabanı; onu yormadan değişiklikleri Debezium okuyor. POS dosyaları on iki ayrı biçimde geliyor, NiFi her dosyanın izini tutuyor. Fotoğraf 2,5 MB, kuyruğa girmiyor; doğrudan nesne depolamaya gidiyor, Kafka'ya yalnız bilgisi giriyor. Sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmediği için toplanmıyor.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: G4: her kaynak için alım yöntemi: dosya aktarımı, değişiklik yakalama, ileti kuyruğu, API. Dokuz kaynağın her biri geliş şekline göre <b>dört yoldan</b> birine giriyor. Araç ve sensör sürekli akıyor: ileti kuyruğu. ERP canlı veritabanı; onu yormadan değişiklikleri Debezium okuyor. POS dosyaları on iki ayrı biçimde geliyor, NiFi her dosyanın izini tutuyor. Fotoğraf 2,5 MB, kuyruğa girmiyor; doğrudan nesne depolamaya gidiyor, Kafka'ya yalnız bilgisi giriyor. Sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmediği için toplanmıyor.</aside>
   </section>
 
   <section class="slide" id="kafka" data-title="Kafka bölüm sayısı" data-export="image" data-duration="70">
@@ -316,7 +316,7 @@
       </div>
     </div>
     <p class="src">Kaynak: G4 veri alımı, Bölüm 3. Görev kapasitesi varsayım, ölçülmedi.</p>
-    <aside class="notes">Bölüm sayısını soğuk zincir konusu üzerinden türetiyorum. Bin yüz araç on saniyede bir yolluyor: saniyede yüz on ileti. Bayramda dört katı, üç yıl sonra yedi yüz altmış. Asıl belirleyici kesinti: Flink on dakika durursa yaklaşık <b>456 bin ileti</b> birikir; bunu iki dakikada eritmek için on görev gerekir. On ikiyi seçtik çünkü 2, 3, 4 ve 6'ya bölünür; sonradan bölüm artırmak aracın ölçüm sırasını bozardı. Sağda bunu canlı görüyorsunuz: on iki şerit, Flink durunca kırmızı birikim, on görev dönünce eriyor; sahne hızlandırılmış. Son tuşta diğer konular, aynı kuralla.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: G4: konu, bölüm sayısı, anahtar, saklama; bölüm sayısını tepe hızdan türet. Bölüm sayısını soğuk zincir konusu üzerinden türetiyorum. Bin yüz araç on saniyede bir yolluyor: saniyede yüz on ileti. Bayramda dört katı, üç yıl sonra yedi yüz altmış. Asıl belirleyici kesinti: Flink on dakika durursa yaklaşık <b>456 bin ileti</b> birikir; bunu iki dakikada eritmek için on görev gerekir. On ikiyi seçtik çünkü 2, 3, 4 ve 6'ya bölünür; sonradan bölüm artırmak aracın ölçüm sırasını bozardı. Sağda bunu canlı görüyorsunuz: on iki şerit, Flink durunca kırmızı birikim, on görev dönünce eriyor; sahne hızlandırılmış. Son tuşta diğer konular, aynı kuralla.</aside>
   </section>
 
   <section class="slide" data-title="Kanıt: güvenlik bedeli" data-duration="60">
@@ -365,7 +365,7 @@
     <p class="d-mesaj" data-step="1-1">Aracıyı durdurdum: araçlar ağa ulaşamıyor</p>
     <p class="d-mesaj iyi" data-step="2-2">Bağlantı geri geldi: tampon boşalıyor</p>
     <p class="t-body d-sonuc" data-step="3">İlk provada <span class="t-num" data-num="demo.p1.kayip"></span> ileti kaybettik: aracının <span class="t-num" data-num="demo.sinir"></span> iletilik kuyruğu taştı. Sınırı büyüttük, kayıp <span class="t-num" data-motion="pen-mark" data-num="demo.p2.kayip"></span>.</p>
-    <aside class="notes">Bu, Docker'da yaptığımız gerçek bir koşunun kaydı: bin yüz araç bayram hızında, saniyede <b>440 ileti</b> yolluyor; MQTT'den Kafka'nın on iki bölümüne akıyor. Tuşa basınca kayıtta MQTT aracısını durdurduğumuz ana geçiyoruz: araçlar ağa ulaşamıyor, iletiler araçta birikiyor, kırmızı sayı bu. Tekrar basınca bağlantı geri geliyor, biriken altı bin ileti yaklaşık bir saniyede Kafka'ya akıyor. Son tuş: ilk provada <b>3.820 ileti kaybettik</b>; aracının varsayılan bin iletilik kuyruğu taştı. Sınırı on beş dakikalık kesintiye göre büyüttük, kayıp sıfır. Bu, ölçmeden bulamayacağımız bir hataydı.</aside>
+    <aside class="notes">Burada sınadığımız soru: Bağlantı koparsa ileti kaybolur mu? Alım katmanının dayanıklılığı, ölçerek. Bu, Docker'da yaptığımız gerçek bir koşunun kaydı: bin yüz araç bayram hızında, saniyede <b>440 ileti</b> yolluyor; MQTT'den Kafka'nın on iki bölümüne akıyor. Tuşa basınca kayıtta MQTT aracısını durdurduğumuz ana geçiyoruz: araçlar ağa ulaşamıyor, iletiler araçta birikiyor, kırmızı sayı bu. Tekrar basınca bağlantı geri geliyor, biriken altı bin ileti yaklaşık bir saniyede Kafka'ya akıyor. Son tuş: ilk provada <b>3.820 ileti kaybettik</b>; aracının varsayılan bin iletilik kuyruğu taştı. Sınırı on beş dakikalık kesintiye göre büyüttük, kayıp sıfır. Bu, ölçmeden bulamayacağımız bir hataydı.</aside>
   </section>
 
   <section class="slide night" data-title="Bölüm: Zeynep" data-duration="20" data-transition="iris">
@@ -426,7 +426,7 @@
       </div>
     </div>
     <p class="src">Kaynak: Veri Mimarı raporu, G5. MinIO nesne depolama, 8+2 silme kodlaması; Iceberg tablo biçimi.</p>
-    <aside class="notes">Depolamada üç katman var. <b>Bronze</b> ham ve değişmez: kaynaktan geldiği gibi, geri dönüp yeniden işleyebilmek için. Silver temizlenmiş ve ürün kodları eşleşmiş veri, Gold iş sorularına hazır tablolar. Veri yaşlandıkça daha ucuz katmana iner; ham veri üç yıl, mali kayıtlar on yıl. Akış verisinin bıraktığı küçük dosyaları her gece birleştiriyoruz. Eski Hadoop kümesini ve veri ambarını hemen kapatmıyoruz: önce yeni sistemle <b>paralel çalışıyor</b>, veriler taşınıp sonuçlar karşılaştırılıyor, sonra salt okunur kalıyor, iş birimleri onaylayınca kapanıyor.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: G5: ham, temiz, iş katmanları; biçim ve bölümleme; küçük dosya; sıcak, ılık, soğuk. Depolamada üç katman var. <b>Bronze</b> ham ve değişmez: kaynaktan geldiği gibi, geri dönüp yeniden işleyebilmek için. Silver temizlenmiş ve ürün kodları eşleşmiş veri, Gold iş sorularına hazır tablolar. Veri yaşlandıkça daha ucuz katmana iner; ham veri üç yıl, mali kayıtlar on yıl. Akış verisinin bıraktığı küçük dosyaları her gece birleştiriyoruz; kartların sağında bunu görüyorsunuz: küçük dosyalar Bronze'a düşüyor, gece iki büyük dosyada birleşiyor, temizlenip Silver'a çıkıyor, hatalılar karantinaya gidiyor, Gold'da iş tablosu oluşuyor. Eski Hadoop kümesini ve veri ambarını hemen kapatmıyoruz: önce yeni sistemle <b>paralel çalışıyor</b>, veriler taşınıp sonuçlar karşılaştırılıyor, sonra salt okunur kalıyor, iş birimleri onaylayınca kapanıyor.</aside>
   </section>
 
   <section class="slide" data-title="Hızlı depolar" data-duration="60">
@@ -448,7 +448,7 @@
     </div>
     <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> Cassandra; ayrı bir geniş sütun ihtiyacımız kalmadı, lot zinciri ise çizge gezinmesi ister.</p>
     <p class="src">Kaynak: Veri Mimarı raporu (KA-7), ekip kararı 10 Kasım.</p>
-    <aside class="notes">İki soru lakehouse'un gece işini bekleyemez. Soğuk zincir alarmı için her aracın son durumunu <b>Redis</b>'te tutuyoruz; kaybolursa Kafka'dan yeniden kurulur, bu yüzden erişilebilirliği seçtik. Geri çağırmada lot, palet, sevkiyat ve satış noktası zincirini <b>Neo4j</b>'de çizge olarak tutuyoruz; burada yanlış cevap vermektense beklemeyi seçtik.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: G5 ve KA-7: en az bir iş sorunu için NoSQL; tür, anahtar, CAP; lot zinciri modeli. İki soru lakehouse'un gece işini bekleyemez. Soğuk zincir alarmı için her aracın son durumunu <b>Redis</b>'te tutuyoruz; kaybolursa Kafka'dan yeniden kurulur, bu yüzden erişilebilirliği seçtik. Geri çağırmada lot, palet, sevkiyat ve satış noktası zincirini <b>Neo4j</b>'de çizge olarak tutuyoruz; burada yanlış cevap vermektense beklemeyi seçtik.</aside>
   </section>
 
   <section class="slide" data-title="Ürün kodu eşleştirme" data-duration="55">
@@ -472,16 +472,24 @@
     </div>
     <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> eşleştirmeyi sorgu anında yapmak, raporlar tutarsızlaşır; ham koda dokunmak, hatalı eşleşme geri alınamaz.</p>
     <p class="src">Kaynak: Zeynep G10, KA-1. Eşleştirme tablosu küçük (<span class="t-num" data-num="ka1.tablo"></span> satır), her düğüme kopyalanarak birleştirilir.</p>
-    <aside class="notes">On iki zincir kendi ürün kodunu kullanıyor, bizim ana verimizde ise 3.200 SKU var. Eşleştirmeyi ham katmandan temiz katmana geçerken dört adımda yapıyoruz: önce barkod, sonra daha önce onaylanmış eşleşme, sonra benzerlik skoru, en son veri sorumlusunun onayı. <b>Eşleşmeyen satır silinmiyor</b>, karantinaya gidiyor; böylece zincirin toplam satışı hep doğru kalıyor.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: KA-1: zincir kodları hangi katmanda, hangi yöntemle eşleşir; eşleşmeyen satıra ne olur?. On iki zincir kendi ürün kodunu kullanıyor, bizim ana verimizde ise 3.200 SKU var. Eşleştirmeyi ham katmandan temiz katmana geçerken dört adımda yapıyoruz: önce barkod, sonra daha önce onaylanmış eşleşme, sonra benzerlik skoru, en son veri sorumlusunun onayı. <b>Eşleşmeyen satır silinmiyor</b>, karantinaya gidiyor; böylece zincirin toplam satışı hep doğru kalıyor.</aside>
   </section>
 
-  <section class="slide" data-title="Güvenlik ve KVKK" data-duration="70">
+  <section class="slide" id="guvenlik" data-title="Güvenlik ve KVKK" data-duration="70">
     <p class="istenen" data-raw><b>İstenen</b> Güvenlik ve KVKK: temsilci konumu ve bakkal bilgisi; ilk üç katmandaki önlemler</p>
     <div class="sekme">Zeynep Berfe Koçak · Analitik ve Yönetişim</div>
     <p class="t-kicker" data-motion="rise">Güvenlik ve KVKK</p>
-    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Kişisel veri daha ilk katmanda korunur</h2>
+    <h2 class="t-title" data-motion="line-rise" data-delay=".1">Kişisel veri ilk katmanda korunur</h2>
     <div class="grid-3 guv" data-motion="stagger" data-child=".gk" data-gap=".18" data-delay=".5">
-      <div class="gk"><p class="gk-ad">Kaynakta</p><p>Her cihaz sertifikayla tanınır; sertifikasız bağlanamaz.</p><p>Fotoğraftaki yüz ve plaka alımda bulanıklaştırılır.</p></div>
+      <div class="gk"><p class="gk-ad">Kaynakta</p><p>Her cihaz sertifikayla tanınır; sertifikasız bağlanamaz.</p><svg class="yuz" viewBox="0 0 440 170" aria-label="Raf fotoğrafında yüzün bulanıklaştırılması">
+          <defs><filter id="bulanik" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur id="bulanik-d" stdDeviation="9"/></filter></defs>
+          <rect class="raf-z" x="0" y="0" width="440" height="170" rx="8"/>
+          <g class="urunler"></g>
+          <g class="kisi"><rect x="292" y="104" width="76" height="70" rx="22"/></g>
+          <g filter="url(#bulanik)" class="bas"><circle cx="330" cy="78" r="28"/><circle class="goz" cx="320" cy="74" r="3.5"/><circle class="goz" cx="340" cy="74" r="3.5"/><path class="agiz" d="M318,88 Q330,97 342,88"/></g>
+          <rect class="yuz-kutu" x="292" y="40" width="76" height="76" rx="6"/>
+        </svg>
+        <p class="yuz-alt">Yüz ve plaka alımda bulanıklaşır; <b>orijinal saklanmaz</b>.</p></div>
       <div class="gk"><p class="gk-ad">Alımda</p><p>MQTT ve Kafka'da mTLS ve konu başına erişim listesi.</p><p>Kurala uymayan ileti <span class="t-num" data-num="kv.dlq"></span> gün hata kuyruğunda.</p></div>
       <div class="gk"><p class="gk-ad">Depolamada</p><p>AES-256, anahtarlar merkezde.</p><p>Analistler temsilciyi takma adla görür.</p></div>
     </div>
@@ -490,7 +498,7 @@
       <p class="t-body">Temsilci konumu her temsilci ve gün için ayrı anahtarla şifrelenir; <b><span class="t-num" data-num="kv.gun"></span> gün sonra anahtar silinir</b>, kayıt 3 yıl kalır ama konum okunamaz.</p>
     </div>
     <p class="src">Kaynak: Zeynep G10 (10.1-10.3), KVKK md. 4, 5, 7, 12. Güvenlik bedeli ölçüldü: Muhammed Sabit Genan, S7.</p>
-    <aside class="notes">Güvenliği ayrı bir katman olarak değil, verinin geçtiği her katmanın içine koyduk. Kaynakta sertifikasız cihaz bağlanamıyor, fotoğraftaki yüzler daha alımda bulanıklaşıyor. Alımda her servis kendi kimliğiyle ve yalnız kendi konusuna erişiyor. En ilginç kısım <b>kripto-silme</b>: vaka ham veriyi üç yıl istiyor, KVKK ise konumu gereğinden uzun tutmamamızı. Konumu temsilci ve gün başına anahtarla şifreliyoruz; otuz gün sonra anahtarı siliyoruz, kayıt duruyor ama konum artık okunamıyor.</aside>
+    <aside class="notes">Yönerge burada şunu istiyor: Güvenlik ve KVKK: temsilci konumu ve bakkal bilgisi; ilk üç katmandaki önlemler. Güvenliği ayrı bir katman olarak değil, verinin geçtiği her katmanın içine koyduk. Kaynakta sertifikasız cihaz bağlanamıyor, fotoğraftaki yüzler daha alımda bulanıklaşıyor. Alımda her servis kendi kimliğiyle ve yalnız kendi konusuna erişiyor. En ilginç kısım <b>kripto-silme</b>: vaka ham veriyi üç yıl istiyor, KVKK ise konumu gereğinden uzun tutmamamızı. Konumu temsilci ve gün başına anahtarla şifreliyoruz; otuz gün sonra anahtarı siliyoruz, kayıt duruyor ama konum artık okunamıyor.</aside>
   </section>
 
   <section class="slide night bare" data-title="Kapanış" data-duration="20" data-transition="iris">
@@ -519,5 +527,7 @@
 <script src="sema-sahne.js"></script>
 <script src="hacim-sahne.js"></script>
 <script src="kafka-sahne.js"></script>
+<script src="depo-sahne.js"></script>
+<script src="guv-sahne.js"></script>
 </body>
 </html>
