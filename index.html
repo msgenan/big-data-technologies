@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TazeRota Ara Denetim</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="deck.css">
+<link rel="stylesheet" href="motion.css">
+<link rel="stylesheet" href="deck.local.css">
+</head>
+<body>
+<main class="deck" data-texture="grid">
+
+  <section class="slide" data-title="Kapak" data-duration="20" data-transition="fade" data-camera="push">
+    <div class="center-v">
+      <p class="t-kicker" data-motion="rise" data-raw>YBS<span class="t-num">025</span> Büyük Veri Teknolojileri · Vaka A · Ara denetim</p>
+      <h1 class="t-display measure" data-motion="line-rise" data-delay=".15">TazeRota: dokuz kaynaktan tek veri platformu</h1>
+      <div class="ekip" data-motion="stagger" data-child="div" data-gap=".12" data-delay=".9">
+        <div><p class="ad">Sefa Ünal</p><p class="rol">Veri Mimarı</p></div>
+        <div><p class="ad">Muhammed Sabit Genan</p><p class="rol">Veri Mühendisi</p></div>
+        <div><p class="ad">Zeynep Berfe Koçak</p><p class="rol">Analitik ve Yönetişim</p></div>
+      </div>
+    </div>
+    <aside class="notes">Açılış.</aside>
+  </section>
+
+  <section class="slide night" data-title="Bölüm: Sefa" data-duration="20" data-transition="iris">
+    <p class="t-kicker" data-motion="rise" data-raw>Bölüm 1 / 3 · Veri Mimarı</p>
+    <h2 class="t-display" data-motion="line-rise" data-delay=".1">Sefa Ünal</h2>
+    <div class="acilis">
+      <div data-step="1">
+        <h3>Projede ne yaptım</h3>
+        <div class="list">
+          <p>Gereksinim ve izlenebilirlik</p>
+          <p>Üç yıllık hacim hesabı</p>
+          <p>Mimari desen: lakehouse</p>
+          <p>Depolama kararları</p>
+        </div>
+      </div>
+      <div data-step="2">
+        <h3>Şimdi ne anlatacağım</h3>
+        <div class="akis">
+          <p>İş sorunları ve hedefler</p>
+          <p>Kaynaklar ve hacim</p>
+          <p>Mimari şema</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Kendini bir cümlede tanıt, sonra <b>yaptığın işi</b> ve anlatacağın üç konuyu söyle.</aside>
+  </section>
+
+  <section class="slide" data-title="Vaka ve görev" data-duration="40">
+    <div class="sekme">Sefa Ünal · Veri Mimarı</div>
+    <p class="t-kicker" data-motion="rise">Vaka A · TazeRota Hızlı Tüketim</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Veri dokuz ayrı yerde; bizden tek bir platform istendi</h2>
+    <div class="grid-3 vaka" data-motion="stagger" data-child=".vk" data-gap=".2" data-delay=".5">
+      <div class="vk"><p class="vk-ad">Şirket</p>
+        <p><span class="t-num" data-num="v.fabrika"></span> fabrika, <span class="t-num" data-num="v.hat"></span> üretim hattı</p><p><span class="t-num" data-num="v.arac"></span> soğutuculu araç</p><p><span class="t-num" data-num="v.temsilci"></span> satış temsilcisi</p>
+        <p><span class="t-num" data-num="v.nokta"></span> satış noktası, <span class="t-num" data-num="v.zincir"></span> zincir</p><p><span class="t-num" data-num="v.sku"></span> ürün (SKU)</p></div>
+      <div class="vk"><p class="vk-ad">Kısıtlar</p>
+        <p>Ham veri en az <span class="t-num" data-num="dep.ham"></span> yıl, mali kayıt <span class="t-num" data-num="kv.mali"></span> yıl</p><p>Konum ve bakkal bilgisi KVKK kapsamında</p>
+        <p>Sezonda günlük hacim <span class="t-num" data-raw>4</span> katı</p><p>Her zincirin ürün kodu farklı</p><p>Eski Hadoop kümesi ve veri ambarı</p></div>
+      <div class="vk vk-ist"><p class="vk-ad">Bu denetimde</p>
+        <p>Yönergenin istediği: <b>tek sayfalık mimari taslak</b> ve <b>hacim hesabı</b>.</p>
+        <p>Biz ilk üç katmanı ayrıntılı getirdik: <b>kaynak, alım, depolama</b>.</p></div>
+    </div>
+    <p class="src" data-raw>Kaynak: Vize ödevi yönergesi, Vaka A ve 5.3 Ara denetim.</p>
+    <aside class="notes">Vakamız TazeRota: süt ürünü, atıştırmalık ve içecek üreten, Türkiye geneline dağıtan bir hızlı tüketim şirketi. Verisi dokuz ayrı kaynakta: fabrikadaki sensörler, soğutuculu araçlar, temsilcilerin el terminalleri, zincir marketlerin satış dosyaları... Kısıtlar ağır: ham veri üç yıl saklanacak, kişisel veri var, sezonda hacim dört katına çıkıyor. Ara denetimde yönerge <b>mimari taslak ve hacim hesabı</b> istiyor; biz ilk üç katmanı, yani kaynak, alım ve depolamayı ayrıntılı getirdik.</aside>
+  </section>
+
+  <section class="slide" data-title="İş soruları" data-duration="40">
+    <p class="istenen" data-raw><b>İstenen</b> G1: her iş sorununu veri gereksinimine çevir: kaynak, gecikme, doğruluk, kullanıcı</p>
+    <div class="sekme">Sefa Ünal · Veri Mimarı</div>
+    <p class="t-kicker" data-motion="rise">Sorun ve hedefler</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Beş iş sorusu, beş ayrı hız: saniyeden haftaya</h2>
+    <div class="eksen" data-motion="stagger" data-child=".dur" data-gap=".18" data-delay=".6">
+      <div class="cizgi"></div>
+      <div class="dur"><p class="dur-h">≤ <span class="t-num" data-num="h.i3"></span> sn</p><p class="dur-ad">Soğuk zincir alarmı</p><p class="dur-k">Filo ve kalite</p></div>
+      <div class="dur"><p class="dur-h">≤ <span class="t-num" data-num="h.i2"></span> dk</p><p class="dur-ad">Raf boşluğu</p><p class="dur-k">Saha temsilcisi</p></div>
+      <div class="dur"><p class="dur-h">≤ <span class="t-num" data-num="h.i5"></span> saat</p><p class="dur-ad">Ürün geri çağırma</p><p class="dur-k">Kalite ve kriz ekibi</p></div>
+      <div class="dur"><p class="dur-h" data-raw>04:00</p><p class="dur-ad">Talep tahmini</p><p class="dur-k">Planlama, her gece</p></div>
+      <div class="dur"><p class="dur-h">Haftalık</p><p class="dur-ad">Promosyon etkisi</p><p class="dur-k">Pazarlama, sorgu ≤ <span class="t-num" data-num="h.i4"></span> sn</p></div>
+    </div>
+    <p class="t-body alt-not" data-step="1">Tek bir işleme hızı hepsine yetmez: <b>akış</b> da <b>toplu iş</b> de gerekiyor.</p>
+    <p class="src">Kaynak: vaka metni; kabul ölçütleri Veri Mimarı raporu, G1.</p>
+    <aside class="notes">TazeRota'nın beş iş sorusu var ve her birinin beklediği hız çok farklı. Soğuk zincir alarmı otuz saniye içinde gelmeli; raf boşluğu on beş dakikada; geri çağırmada iki saat içinde hangi lotun nereye gittiğini bilmeliyiz. Talep tahmini her gece sabah dörde kadar hazır olmalı, promosyon etkisi haftalık. Bu yüzden <b>tek bir işleme hızı yetmiyor</b>: hem akış hem toplu iş gerekiyor.</aside>
+  </section>
+
+  <section class="slide" data-title="Kaynaklar" data-duration="55">
+    <p class="istenen" data-raw><b>İstenen</b> G1–G2: izlenebilirlik matrisi, işe yaramayan kaynağa karar, yapı ve 5V</p>
+    <div class="sekme">Sefa Ünal · Veri Mimarı</div>
+    <p class="t-kicker" data-motion="rise">Katman 1 · Kaynaklar</p>
+    <h2 class="t-title" data-motion="line-rise" data-delay=".1">Dokuz kaynaktan yedisi toplanıyor</h2>
+    <div class="mx" data-motion="rise" data-delay=".5">
+      <div class="mx-s mx-bas"><div class="mx-ad"></div><div class="mx-b"><p>ERP</p><b class="kod" data-raw>A1</b></div><div class="mx-b"><p>POS</p><b class="kod" data-raw>A2</b></div><div class="mx-b"><p>Terminal</p><b class="kod" data-raw>A3</b></div><div class="mx-b"><p>Fotoğraf</p><b class="kod" data-raw>A4</b></div><div class="mx-b"><p>Araç</p><b class="kod" data-raw>A5</b></div><div class="mx-b"><p>Sensör</p><b class="kod" data-raw>A6</b></div><div class="mx-b"><p>Dış veri</p><b class="kod" data-raw>A9</b></div><div class="mx-b disi"><p>Sosyal medya</p><b class="kod" data-raw>A7</b></div><div class="mx-b disi"><p>Çağrı merkezi</p><b class="kod" data-raw>A8</b></div></div>
+      <div class="mx-s mx-ek"><div class="mx-ad">Yapı</div><div class="mx-t">Yapılandırılmış</div><div class="mx-t">Yarı</div><div class="mx-t">Yarı</div><div class="mx-t">Yapısız</div><div class="mx-t">Yarı</div><div class="mx-t">Yarı</div><div class="mx-t">Yarı</div><div class="mx-t disi">Yapısız</div><div class="mx-t disi">Yapısız</div></div>
+      <div class="mx-s" data-step="1"><div class="mx-ad">Talep tahmini</div><div class="mx-h"><i></i></div><div class="mx-h"><i></i></div><div class="mx-h"><i></i></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"><i></i></div><div class="mx-h disi"></div><div class="mx-h disi"></div></div><div class="mx-s" data-step="1"><div class="mx-ad">Raf boşluğu</div><div class="mx-h"></div><div class="mx-h"><i></i></div><div class="mx-h"><i></i></div><div class="mx-h"><i></i></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h disi"></div><div class="mx-h disi"></div></div><div class="mx-s" data-step="1"><div class="mx-ad">Soğuk zincir alarmı</div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"><i></i></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h disi"></div><div class="mx-h disi"></div></div><div class="mx-s" data-step="1"><div class="mx-ad">Promosyon etkisi</div><div class="mx-h"></div><div class="mx-h"><i></i></div><div class="mx-h"><i></i></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"><i></i></div><div class="mx-h disi"></div><div class="mx-h disi"></div></div><div class="mx-s" data-step="1"><div class="mx-ad">Ürün geri çağırma</div><div class="mx-h"><i></i></div><div class="mx-h"><i></i></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"></div><div class="mx-h"><i></i></div><div class="mx-h"></div><div class="mx-h disi"></div><div class="mx-h disi"></div></div>
+    </div>
+    <div class="bes-v" data-step="2" data-motion="stagger" data-child=".bv" data-gap=".12">
+      <div class="bv"><b>Hacim</b><span>fotoğraf ve sensör: <span class="t-num" data-num="hacim.ham"></span> TB / 3 yıl</span></div>
+      <div class="bv"><b>Hız</b><span>sensörde saniyede <span class="t-num" data-num="a6.olcum"></span> ölçüm</span></div>
+      <div class="bv"><b>Çeşitlilik</b><span data-raw>tablo, CSV/EDI, JSON, JPEG, OPC-UA, Excel</span></div>
+      <div class="bv"><b>Doğruluk</b><span>sensör hatası, düzeltilen dosya, mükerrer kayıt</span></div>
+      <div class="bv"><b>Değer</b><span>beş iş sorusu: tahminden geri çağırmaya</span></div>
+    </div>
+    <p class="src">Kaynak: vaka metni; eşleşme Veri Mimarı raporu, G1. Yapı: yapılandırılmış, yarı yapılandırılmış, yapısız.</p>
+    <aside class="notes">Yönerge her iş sorusunun hangi kaynağa ihtiyaç duyduğunu ve işe yaramayan kaynağa ne yapacağımızı soruyor. Matris bunu gösteriyor: <b>sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmiyor</b>, bu yüzden toplamıyoruz; ne depolama maliyeti ne KVKK yükü. Alttaki beş V her boyutun TazeRota'daki karşılığı: hacmi fotoğraf ve sensör getiriyor, hızı sensör ve araç, çeşitliliği altı farklı biçim; doğruluk sorunu sensör hatası ve düzeltilen dosyalar; değer de beş iş sorusunun kendisi.</aside>
+  </section>
+
+  <section class="slide" data-title="Hacim" data-duration="75" data-transition="iris">
+    <p class="istenen" data-raw><b>İstenen</b> G2: her kaynak için saklama sonu hacmi; 4 kat tepe, çoğaltma ve sıkıştırmayla gerçek disk</p>
+    <div class="sekme">Sefa Ünal · Veri Mimarı</div>
+    <p class="t-kicker" data-motion="rise">Katman 1 · Kaynaklar ve hacim</p>
+    <h2 class="t-title" data-motion="line-rise" data-delay=".1">Üç yılda <span data-num="hacim.ham"></span> TB ham veri; yükün <span data-num="hacim.a4_pay"></span>'ı raf fotoğrafı</h2>
+    <div class="hacim-grid">
+      <div data-chart="bar" data-keys="ham.A4,ham.A6,ham.A2,ham.A5,ham.A3,ham.A1" data-highlight="ham.A4" data-delay=".5"></div>
+      <div class="hacim-side">
+        <p class="t-label">Disk ihtiyacı, 3 yıl</p>
+        <div class="kap-row" data-step="1">
+          <div><p class="t-small">3 kopya</p><p class="kap-v"><span class="t-num kap-n" data-num="hacim.kopya3"></span> <span class="t-small">TB</span></p></div>
+          <div><p class="t-small" data-raw>8+2 EC</p><p class="kap-v"><span class="t-num kap-n pen" data-num="hacim.ec"></span> <span class="t-small">TB</span></p></div>
+        </div>
+        <p class="t-body" data-step="2">Aynı veri <span data-motion="pen-mark" data-mark="underline"><span class="t-num" data-num="hacim.ec_fark"></span> TB daha az</span> diskle</p>
+      </div>
+    </div>
+    <p class="src">Kaynak: Veri Mimarı raporu (G2). Mevsim çarpanı <span data-num="hacim.mevsim"></span>, 3 yıllık büyüme <span data-num="hacim.buyume"></span>, TB.</p>
+    <aside class="notes">Önce toplam, sonra <b>fotoğrafın payı</b>, sonra kopya ve EC farkı.</aside>
+  </section>
+
+  <section class="slide" data-title="Mimari şema" data-duration="90" data-transition="iris" data-export="image">
+    <p class="istenen" data-raw><b>İstenen</b> G3: Lambda, Kappa, lakehouse arasından seç, seçmediklerini gerekçelendir; tek sayfalık şema</p>
+    <div class="sekme">Sefa Ünal · Veri Mimarı</div>
+    <p class="t-kicker" data-motion="rise">Mimari · ortak lakehouse, akış ve toplu iş</p>
+    <h2 class="t-title" data-motion="line-rise" data-delay=".1">Tek omurga, üç sorgu yolu</h2>
+    <div class="sema-kutu">
+<!--SEMA-->
+<svg class="sema" viewBox="0 0 1570 560" role="img" aria-label="Mimari şema: kaynaklar, alım, Kafka, işleme, depolama, sunum">
+<defs><marker id="uc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10z" class="uc"/></marker><marker id="uc-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10z" class="uc-k"/></marker></defs>
+<text x="0" y="552" class="sutun">Kaynak</text>
+<text x="310" y="552" class="sutun">Alım</text>
+<text x="570" y="552" class="sutun">Omurga</text>
+<text x="800" y="552" class="sutun">İşleme</text>
+<text x="1030" y="552" class="sutun">Depolama</text>
+<text x="1390" y="552" class="sutun">Sunum</text>
+<g class="oklar" data-motion="draw" data-gap=".03" data-delay=".3">
+<path d="M200,48 C255,48 255,48 304,48" class="ok" marker-end="url(#uc)"/>
+<path d="M200,120 C255,120 255,120 304,120" class="ok" marker-end="url(#uc)"/>
+<path d="M200,192 C255,192 255,192 304,192" class="ok" marker-end="url(#uc)"/>
+<path d="M200,264 C255,264 255,264 304,264" class="ok" marker-end="url(#uc)"/>
+<path d="M200,336 C255,336 255,372 304,372" class="ok" marker-end="url(#uc)"/>
+<path d="M200,408 C255,408 255,372 304,372" class="ok" marker-end="url(#uc)"/>
+<path d="M200,480 C255,480 255,480 304,480" class="ok" marker-end="url(#uc)"/>
+<path d="M500,48 C535,48 535,156 564,156" class="ok" marker-end="url(#uc)"/>
+<path d="M500,120 C535,120 535,156 564,156" class="ok" marker-end="url(#uc)"/>
+<path d="M500,192 C535,192 535,156 564,156" class="ok" marker-end="url(#uc)"/>
+<path d="M500,264 C535,264 535,156 564,156" class="ok" marker-end="url(#uc)"/>
+<path d="M730,68 C765,68 765,48 794,48" class="ok" marker-end="url(#uc)"/>
+<path d="M960,48 C995,48 995,48 1024,48" class="ok" marker-end="url(#uc)"/>
+<path d="M1320,48 C1355,48 1355,48 1384,48" class="ok" marker-end="url(#uc)"/>
+<path d="M730,256 C888,256 888,373 1040,373" class="ok" marker-end="url(#uc)"/>
+<path d="M500,372 C773,372 773,373 1040,373" class="ok" marker-end="url(#uc)"/>
+<path d="M500,480 C773,480 773,373 1040,373" class="ok" marker-end="url(#uc)"/>
+<path d="M730,288 C880,288 880,480 1024,480" class="ok" marker-end="url(#uc)"/>
+<path d="M1320,480 C1355,480 1355,480 1384,480" class="ok" marker-end="url(#uc)"/>
+<path d="M960,138 C1003,138 1003,283 1040,283" class="ok" marker-end="url(#uc)"/>
+<path d="M1304,193 C1347,193 1347,193 1384,193" class="ok" marker-end="url(#uc)"/>
+</g>
+<g class="kt "><rect x="0" y="20" width="200" height="56" rx="8"/><text x="16" y="56" class="kt-ad">Araç telemetrisi</text></g>
+<g class="kt "><rect x="0" y="92" width="200" height="56" rx="8"/><text x="16" y="128" class="kt-ad">Hat sensörleri</text></g>
+<g class="kt "><rect x="0" y="164" width="200" height="56" rx="8"/><text x="16" y="200" class="kt-ad">El terminali</text></g>
+<g class="kt "><rect x="0" y="236" width="200" height="56" rx="8"/><text x="16" y="272" class="kt-ad">ERP kayıtları</text></g>
+<g class="kt "><rect x="0" y="308" width="200" height="56" rx="8"/><text x="16" y="344" class="kt-ad">POS dosyaları</text></g>
+<g class="kt "><rect x="0" y="380" width="200" height="56" rx="8"/><text x="16" y="416" class="kt-ad">Dış veriler</text></g>
+<g class="kt "><rect x="0" y="452" width="200" height="56" rx="8"/><text x="16" y="488" class="kt-ad">Raf fotoğrafı</text></g>
+<g class="kt alim"><rect x="310" y="20" width="190" height="56" rx="8"/><text x="326" y="56" class="kt-ad">MQTT aracısı</text></g>
+<g class="kt alim"><rect x="310" y="92" width="190" height="56" rx="8"/><text x="326" y="128" class="kt-ad">Uç ağ geçidi</text></g>
+<g class="kt alim"><rect x="310" y="164" width="190" height="56" rx="8"/><text x="326" y="200" class="kt-ad">HTTPS API</text></g>
+<g class="kt alim"><rect x="310" y="236" width="190" height="56" rx="8"/><text x="326" y="272" class="kt-ad">Debezium</text></g>
+<g class="kt alim"><rect x="310" y="308" width="190" height="128" rx="8"/><text x="326" y="380" class="kt-ad">NiFi</text></g>
+<g class="kt alim"><rect x="310" y="452" width="190" height="56" rx="8"/><text x="326" y="488" class="kt-ad">İmzalı yükleme</text></g>
+<g class="kt omurga"><rect x="570" y="20" width="160" height="272" rx="8"/><text x="650.0" y="72" class="kt-ad b" text-anchor="middle">Kafka</text><text x="650.0" y="110" class="kt-alt" text-anchor="middle">Schema</text><text x="650.0" y="136" class="kt-alt" text-anchor="middle">Registry</text><text x="650.0" y="188" class="kt-alt" text-anchor="middle">Avro</text><text x="650.0" y="214" class="kt-alt" text-anchor="middle">mTLS + ACL</text></g>
+<g class="kt soluk"><rect x="800" y="20" width="160" height="56" rx="8"/><text x="816" y="56" class="kt-ad">Flink</text></g>
+<g class="kt soluk"><rect x="800" y="110" width="160" height="56" rx="8"/><text x="816" y="146" class="kt-ad">Spark</text></g>
+<g class="kt hizli"><rect x="1030" y="20" width="290" height="56" rx="8"/><text x="1046" y="56" class="kt-ad">Redis · araç son durumu</text></g>
+<g class="kt goller"><rect x="1030" y="110" width="290" height="312" rx="8"/><text x="1046" y="142" class="kt-ad b">MinIO + Iceberg</text></g>
+<g class="kt katman"><rect x="1046" y="160" width="258" height="66" rx="8"/><text x="1062" y="201" class="kt-ad">Gold · iş tabloları</text></g>
+<g class="kt katman"><rect x="1046" y="250" width="258" height="66" rx="8"/><text x="1062" y="291" class="kt-ad">Silver · temiz</text></g>
+<g class="kt katman"><rect x="1046" y="340" width="258" height="66" rx="8"/><text x="1062" y="381" class="kt-ad">Bronze · ham, değişmez</text></g>
+<g class="kt hizli"><rect x="1030" y="452" width="290" height="56" rx="8"/><text x="1046" y="488" class="kt-ad">Neo4j · lot zinciri</text></g>
+<g class="kt soluk"><rect x="1390" y="20" width="180" height="56" rx="8"/><text x="1406" y="56" class="kt-ad">Alarm paneli</text></g>
+<g class="kt soluk"><rect x="1390" y="160" width="180" height="66" rx="8"/><text x="1406" y="189" class="kt-ad">Trino</text><text x="1406" y="215" class="kt-ad">ClickHouse</text></g>
+<g class="kt soluk"><rect x="1390" y="256" width="180" height="56" rx="8"/><text x="1406" y="292" class="kt-ad">Pano</text></g>
+<g class="kt soluk"><rect x="1390" y="452" width="180" height="56" rx="8"/><text x="1406" y="488" class="kt-ad">Geri çağırma</text></g>
+<g class="etiketler" data-motion="fade" data-delay="1.2"><text x="255" y="40" class="ok-et" text-anchor="middle">JSON 10 sn</text><text x="255" y="112" class="ok-et" text-anchor="middle">OPC-UA 1 sn</text><text x="255" y="184" class="ok-et" text-anchor="middle">JSON olay</text><text x="255" y="256" class="ok-et" text-anchor="middle">CDC</text><text x="255" y="346" class="ok-et" text-anchor="middle">CSV gün</text><text x="255" y="382" class="ok-et" text-anchor="middle">API gün</text><text x="255" y="472" class="ok-et" text-anchor="middle">JPEG</text><text x="765" y="50" class="ok-et" text-anchor="middle">akış</text><text x="888" y="306" class="ok-et" text-anchor="middle">dakikalık</text><text x="1003" y="202" class="ok-et" text-anchor="middle">gece</text></g>
+<g class="vurgu" data-step="1-1" data-motion="draw" data-gap=".18">
+<path d="M200,48 C255,48 255,48 304,48" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M500,48 C535,48 535,156 564,156" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M730,68 C765,68 765,48 794,48" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M960,48 C995,48 995,48 1024,48" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M1320,48 C1355,48 1355,48 1384,48" class="ok-k" marker-end="url(#uc-k)"/>
+</g>
+<g class="vurgu" data-step="2-2" data-motion="draw" data-gap=".18">
+<path d="M200,264 C255,264 255,264 304,264" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M500,264 C535,264 535,156 564,156" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M730,288 C880,288 880,480 1024,480" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M1320,480 C1355,480 1355,480 1384,480" class="ok-k" marker-end="url(#uc-k)"/>
+</g>
+<g class="vurgu" data-step="3-3" data-motion="draw" data-gap=".18">
+<path d="M200,336 C255,336 255,372 304,372" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M500,372 C773,372 773,373 1040,373" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M730,256 C888,256 888,373 1040,373" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M960,138 C1003,138 1003,283 1040,283" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M1304,193 C1347,193 1347,193 1384,193" class="ok-k" marker-end="url(#uc-k)"/>
+</g>
+</svg>
+<!--/SEMA-->
+    </div>
+    <p class="sema-yol" data-step="1-1"><b>Operasyonel:</b> araç → MQTT → Kafka → Flink → Redis, alarm ≤ <span class="t-num" data-num="h.i3"></span> sn</p>
+    <p class="sema-yol" data-step="2-2"><b>İzlenebilirlik:</b> ERP → Debezium → Kafka → Neo4j, geri çağırma ≤ <span class="t-num" data-num="h.i5"></span> saat</p>
+    <p class="sema-yol" data-step="3-3"><b>Analitik:</b> Bronze → Silver → Gold → Trino, tahmin her gece, promosyon haftalık</p>
+    <p class="secmedik sabit"><b>Seçmediğimiz:</b> saf Lambda, iş kuralları iki kez yazılır; Kappa, <span class="t-num" data-num="hacim.ham"></span> TB'ı Kafka'dan yeniden oynatmak pratik değil. İşleme ve sunum soluk: kapsam dışı.</p>
+    <aside class="notes">Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Şimdi üç yolu tek tek gösteriyorum: <b>operasyonel</b> yol alarmı saniyeler içinde verir, <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar, <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır.</aside>
+  </section>
+
+  <section class="slide night" data-title="Bölüm: Sabit" data-duration="20" data-transition="iris">
+    <p class="t-kicker" data-motion="rise" data-raw>Bölüm 2 / 3 · Veri Mühendisi</p>
+    <h2 class="t-display" data-motion="line-rise" data-delay=".1">Muhammed Sabit Genan</h2>
+    <div class="acilis">
+      <div data-step="1">
+        <h3>Projede ne yaptım</h3>
+        <div class="list">
+          <p>Veri alımı ve Kafka tasarımı</p>
+          <p>Güvenlik bedelini Docker’da ölçtüm</p>
+          <p>Toplu ve akış işleme tasarımı</p>
+          <p>Spark kanıtı, akış simülasyonu</p>
+        </div>
+      </div>
+      <div data-step="2">
+        <h3>Şimdi ne anlatacağım</h3>
+        <div class="akis">
+          <p>Her kaynak hangi yoldan geliyor</p>
+          <p>Kafka konuları ve bölüm sayısı</p>
+          <p>Kanıt: ölçüm ve canlı demo</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Kendini bir cümlede tanıt, sonra <b>yaptığın işi</b> ve anlatacağın üç konuyu söyle.</aside>
+  </section>
+
+  <section class="slide" data-title="Alım yolları" data-duration="70">
+    <p class="istenen" data-raw><b>İstenen</b> G4: her kaynak için alım yöntemi: dosya aktarımı, değişiklik yakalama, ileti kuyruğu, API</p>
+    <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
+    <p class="t-kicker" data-motion="rise">Katman 2 · Veri alımı</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Her kaynak kendi yolundan gelir: dört yöntem, üç platform</h2>
+    <div class="yollar" data-step="1" data-motion="stagger" data-child=".yol" data-gap=".15">
+      <div class="yol"><p class="yol-ad">İleti kuyruğu</p>
+        <div class="kay"><p class="kay-ad">Araç telemetrisi <b class="kod" data-raw>A5</b></p><span>MQTT, mTLS → Kafka</span></div>
+        <div class="kay"><p class="kay-ad">Hat sensörleri <b class="kod" data-raw>A6</b></p><span>uç ağ geçidi → Kafka</span></div></div>
+      <div class="yol"><p class="yol-ad">Değişiklik yakalama</p>
+        <div class="kay"><p class="kay-ad">ERP kayıtları <b class="kod" data-raw>A1</b></p><span>Debezium → Kafka</span></div></div>
+      <div class="yol"><p class="yol-ad">Dosya aktarımı</p>
+        <div class="kay"><p class="kay-ad">POS dosyaları <b class="kod" data-raw>A2</b></p><span>12 zincir, SFTP → NiFi</span></div>
+        <div class="kay"><p class="kay-ad">Raf fotoğrafı <b class="kod" data-raw>A4</b></p><span>doğrudan nesne depolama</span></div></div>
+      <div class="yol"><p class="yol-ad">API</p>
+        <div class="kay"><p class="kay-ad">El terminali <b class="kod" data-raw>A3</b></p><span>HTTPS → Kafka</span></div>
+        <div class="kay"><p class="kay-ad">Dış veriler <b class="kod" data-raw>A9</b></p><span>hava, tatil, promosyon · NiFi</span></div></div>
+    </div>
+    <p class="secmedik" data-step="2"><b>Seçmediğimiz:</b> Sqoop, toplu kopyalar ve geri çağırmanın 2 saatine yetişmez; Flume, sunucu günlüğü içindir, bizde öyle bir kaynak yok.</p>
+    <p class="src">Platformlar: MQTT aracısı, Kafka + Kafka Connect, NiFi. Kaynak: G4 veri alımı.</p>
+    <aside class="notes">Dokuz kaynağın her biri geliş şekline göre <b>dört yoldan</b> birine giriyor. Araç ve sensör sürekli akıyor: ileti kuyruğu. ERP canlı veritabanı; onu yormadan değişiklikleri Debezium okuyor. POS dosyaları on iki ayrı biçimde geliyor, NiFi her dosyanın izini tutuyor. Fotoğraf 2,5 MB, kuyruğa girmiyor; doğrudan nesne depolamaya gidiyor, Kafka'ya yalnız bilgisi giriyor. Sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmediği için toplanmıyor.</aside>
+  </section>
+
+  <section class="slide" data-title="Kafka bölüm sayısı" data-duration="70">
+    <p class="istenen" data-raw><b>İstenen</b> G4: konu, bölüm sayısı, anahtar, saklama; bölüm sayısını tepe hızdan türet</p>
+    <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
+    <p class="t-kicker" data-motion="rise">Katman 2 · Kafka konuları</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">On iki bölüm tahmin değil: tepe hızdan türetildi</h2>
+    <div class="kafka-grid">
+      <div class="zincir">
+        <div class="z" data-step="1"><span class="z-l"><span class="t-num" data-num="k.arac"></span> araç, <span class="t-num" data-num="k.aralik"></span> sn'de bir</span><span class="z-v t-num" data-num="k.ort"></span><span class="z-u">ileti/sn</span></div>
+        <div class="z" data-step="2"><span class="z-l" data-raw>Bayram, <span class="t-num">4</span> kat</span><span class="z-v t-num" data-num="k.tepe"></span><span class="z-u">ileti/sn</span></div>
+        <div class="z" data-step="3"><span class="z-l">Üç yıl büyüme, × <span class="t-num" data-num="k.buy3"></span></span><span class="z-v t-num" data-num="k.uc"></span><span class="z-u">ileti/sn</span></div>
+        <div class="z" data-step="4"><span class="z-l" data-raw>Flink <span class="t-num">10</span> dk durursa biriken</span><span class="z-v t-num" data-num="k.birikim"></span><span class="z-u">ileti</span></div>
+        <div class="z" data-step="4"><span class="z-l" data-raw><span class="t-num">2</span> dk'da eritmek için</span><span class="z-v t-num" data-num="k.eritme"></span><span class="z-u">ileti/sn</span></div>
+        <div class="z son" data-step="5"><span class="z-l">÷ <span class="t-num" data-num="k.kap"></span>/sn görev başına → <span class="t-num" data-num="k.gorev"></span> görev</span><span class="z-v t-num"><span data-motion="pen-mark" data-num="k.bolum"></span></span><span class="z-u">bölüm</span></div>
+      </div>
+      <div class="konular" data-step="6">
+        <p class="t-label">Konu · bölüm · saklama</p>
+        <div class="kr"><code>soguk-zincir.telemetri</code><span data-num="konu.telemetri.b"></span><span><span data-num="konu.telemetri.s"></span> gün</span></div>
+        <div class="kr"><code>saha.terminal-olaylari</code><span data-num="konu.terminal.b"></span><span><span data-num="konu.terminal.s"></span> gün</span></div>
+        <div class="kr"><code>saha.foto-olaylari</code><span data-num="konu.foto.b"></span><span><span data-num="konu.foto.s"></span> gün</span></div>
+        <div class="kr"><code>uretim.sensor-ham</code><span data-num="konu.sensor.b"></span><span><span data-num="konu.sensor.s"></span> gün</span></div>
+        <div class="kr"><code>&lt;konu&gt;.dlq</code><span data-num="konu.dlq.b"></span><span><span data-num="konu.dlq.s"></span> gün</span></div>
+        <p class="t-small kr-not">Fabrika sensörlerinde <span class="t-num" data-num="a6.olcum"></span> ölçüm/sn, hat başına pakete girince <span class="t-num" data-num="a6.ileti"></span> ileti/sn.</p>
+      </div>
+    </div>
+    <p class="src">Kaynak: G4 veri alımı, Bölüm 3. Görev kapasitesi varsayım, ölçülmedi.</p>
+    <aside class="notes">Bölüm sayısını soğuk zincir konusu üzerinden türetiyorum. Bin yüz araç on saniyede bir yolluyor: saniyede yüz on ileti. Bayramda dört katı, üç yıl sonra yedi yüz altmış. Asıl belirleyici kesinti: Flink on dakika durursa yaklaşık <b>456 bin ileti</b> birikir; bunu iki dakikada eritmek için on görev gerekir. On ikiyi seçtik çünkü 2, 3, 4 ve 6'ya bölünür; sonradan bölüm artırmak aracın ölçüm sırasını bozardı. Diğer konular aynı kuralla.</aside>
+  </section>
+
+  <section class="slide" data-title="Kanıt: güvenlik bedeli" data-duration="60">
+    <p class="istenen" data-raw><b>İstenen</b> Veri Mühendisi denetimi: güvenlik önlemleri hattı yavaşlatıyor mu, gecikme hedefi tutuyor mu?</p>
+    <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
+    <p class="t-kicker" data-motion="rise">Kanıt · Docker'da ölçtüm</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Güvenlik gecikmeye <span data-num="s7.fark"></span> ms ekledi, tek ileti kaybolmadı</h2>
+    <div class="kanit-grid">
+      <div>
+        <p class="t-label">En yavaş %1 iletinin gecikmesi (p99, ms)</p>
+        <div data-chart="bar" data-keys="s7.k440.duz,s7.k440.mtls,s7.k760.duz,s7.k760.mtls,s7.m440.duz,s7.m440.mtls" data-highlight="s7.k440.mtls,s7.k760.mtls,s7.m440.mtls" data-max="10" data-delay=".4"></div>
+      </div>
+      <div class="kanit-side">
+        <p class="t-label">Gönderilen ve alınan ileti</p>
+        <p class="kn t-num"><span data-num="s7.alinan" data-motion="count-up" data-delay=".6"></span></p>
+        <p class="t-body">kayıp&nbsp;&nbsp;<span class="t-num" data-motion="pen-mark" data-num="s7.kayip"></span></p>
+        <p class="t-small" data-step="1">Yetkisiz cihazın yayını engellendi. Yeniden bağlanma <span class="t-num" data-num="s7.bag.duz"></span> → <span class="t-num" data-num="s7.bag.mtls"></span> ms.</p>
+      </div>
+    </div>
+    <p class="src" data-raw>Kafka 3.9.1 ve Mosquitto 2.0.20, Docker. Saniyede 440 (3. yıl 760) ileti, 250 bayt, her ayar 2 dk × 2 tekrar. Tek makine; MQTT → Kafka köprüsü ölçülmedi.</p>
+    <aside class="notes">Veri Mühendisi olarak denetim görevim şuydu: güvenlik önlemleri hattı yavaşlatıyor mu? Docker'da şifresiz bağlantı ile mTLS artı erişim listesini karşılaştırdım. Kafka'da en yavaş yüzde birlik iletiler <b>0,4 ms</b> gecikti, MQTT'de fark ölçülemedi. Altı yüz bin ileti gönderdim, hepsi geldi. Yetkisiz sertifikalı cihaz yayın yapamadı. Bedeli yeniden bağlanmada: birkaç milisaniye.</aside>
+  </section>
+
+  <section class="slide night" id="demo" data-title="Canlı demo" data-duration="75" data-transition="iris" data-export="image">
+    <p class="istenen" data-raw><b>Sınadığımız</b> Bağlantı koparsa ileti kaybolur mu? Alım katmanının dayanıklılığı, ölçerek</p>
+    <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
+    <p class="t-kicker d-ust" data-motion="rise"><span class="lamba" id="d-lamba"></span><span id="d-kaynak">Kayıt · Docker’da gerçek koşu, 10 Kasım</span></p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Bağlantı kopsa da ileti kaybolmuyor</h2>
+    <div class="d-sayac">
+      <div><p class="t-label">Araçların gönderdiği</p><p class="d-n t-num" id="d-gonderilen" data-num="demo.p2.gonderilen"></p></div>
+      <div><p class="t-label">Kafka'ya ulaşan</p><p class="d-n t-num" id="d-alinan" data-num="demo.p2.alinan"></p></div>
+      <div><p class="t-label">Araçta bekleyen</p><p class="d-n t-num" id="d-yolda" data-num="demo.p2.yolda"></p></div>
+      <div class="d-kayip"><p class="t-label">Kayıp</p><p class="d-n t-num" id="d-kayip" data-num="demo.p2.kayip"></p></div>
+    </div>
+    <div class="d-alt">
+      <div class="d-grafik-kutu">
+        <p class="t-label">Araçta bekleyen ileti, son 60 sn</p>
+        <svg id="d-grafik" viewBox="0 0 1000 200" preserveAspectRatio="none"><path class="d-alan" d=""/><path class="d-cizgi" d=""/></svg>
+      </div>
+      <div>
+        <p class="t-label">Kafka'nın <span data-num="demo.bolum"></span> bölümüne dağılım</p>
+        <div class="d-bolum" id="d-bolum"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="t-small d-alt-not">p99 gecikme <span id="d-p99"><span class="t-num">10</span> ms</span> · <span class="t-num" id="d-hiz" data-num="demo.hiz"></span> ileti/sn</p>
+      </div>
+    </div>
+    <p class="d-mesaj" data-step="1-1">Aracıyı durdurdum: araçlar ağa ulaşamıyor</p>
+    <p class="d-mesaj iyi" data-step="2-2">Bağlantı geri geldi: tampon boşalıyor</p>
+    <p class="t-body d-sonuc" data-step="3">İlk provada <span class="t-num" data-num="demo.p1.kayip"></span> ileti kaybettik: aracının <span class="t-num" data-num="demo.sinir"></span> iletilik kuyruğu taştı. Sınırı büyüttük, kayıp <span class="t-num" data-motion="pen-mark" data-num="demo.p2.kayip"></span>.</p>
+    <aside class="notes">Bu, Docker'da yaptığımız gerçek bir koşunun kaydı: bin yüz araç bayram hızında, saniyede <b>440 ileti</b> yolluyor; MQTT'den Kafka'nın on iki bölümüne akıyor. Tuşa basınca kayıtta MQTT aracısını durdurduğumuz ana geçiyoruz: araçlar ağa ulaşamıyor, iletiler araçta birikiyor, kırmızı sayı bu. Tekrar basınca bağlantı geri geliyor, biriken altı bin ileti yaklaşık bir saniyede Kafka'ya akıyor. Son tuş: ilk provada <b>3.820 ileti kaybettik</b>; aracının varsayılan bin iletilik kuyruğu taştı. Sınırı on beş dakikalık kesintiye göre büyüttük, kayıp sıfır. Bu, ölçmeden bulamayacağımız bir hataydı.</aside>
+  </section>
+
+  <section class="slide night" data-title="Bölüm: Zeynep" data-duration="20" data-transition="iris">
+    <p class="t-kicker" data-motion="rise" data-raw>Bölüm 3 / 3 · Analitik ve Yönetişim</p>
+    <h2 class="t-display" data-motion="line-rise" data-delay=".1">Zeynep Berfe Koçak</h2>
+    <div class="acilis">
+      <div data-step="1">
+        <h3>Projede ne yaptım</h3>
+        <div class="list">
+          <p>Teknoloji seçim tablosu</p>
+          <p>Kişisel veri envanteri, KVKK</p>
+          <p>Kripto-silme, kalite kuralları</p>
+          <p>Ürün kodu eşleştirme</p>
+        </div>
+      </div>
+      <div data-step="2">
+        <h3>Şimdi ne anlatacağım</h3>
+        <div class="akis">
+          <p>Depolama katmanları</p>
+          <p>Ürün kodu eşleştirme</p>
+          <p>Güvenlik ve KVKK</p>
+        </div>
+      </div>
+    </div>
+    <aside class="notes">Kendini bir cümlede tanıt, sonra <b>yaptığın işi</b> ve anlatacağın üç konuyu söyle.</aside>
+  </section>
+
+  <section class="slide" data-title="Depolama katmanları" data-duration="55">
+    <p class="istenen" data-raw><b>İstenen</b> G5: ham, temiz, iş katmanları; biçim ve bölümleme; küçük dosya; sıcak, ılık, soğuk</p>
+    <div class="sekme">Zeynep Berfe Koçak · Analitik ve Yönetişim</div>
+    <p class="t-kicker" data-motion="rise">Katman 3 · Depolama</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Ham veri değişmez, iş verisi katmanlarda olgunlaşır</h2>
+    <div class="dep-grid">
+      <div class="katlar" data-motion="stagger" data-child=".kat" data-gap=".2" data-delay=".5">
+        <div class="kat k3"><p class="kat-ad">Gold</p><p>İş tabloları · Parquet</p><p class="kat-b">bölüm: hafta + SKU</p></div>
+        <div class="kat k2"><p class="kat-ad">Silver</p><p>Temiz, eşleşmiş · Parquet</p><p class="kat-b">bölüm: gün + zincir ya da hat</p></div>
+        <div class="kat k1"><p class="kat-ad">Bronze</p><p>Ham, değişmez · Avro, JSON</p><p class="kat-b">bölüm: olay günü + kaynak</p></div>
+      </div>
+      <div class="dep-sag">
+        <div data-step="1">
+          <p class="t-label">Saklama · sıcaktan arşive</p>
+          <div class="zaman">
+            <div class="z1"><b>Sıcak</b><span>0–<span class="t-num" data-num="dep.sicak"></span> gün</span></div>
+            <div class="z2"><b>Ilık</b><span>–<span class="t-num" data-num="dep.ilik"></span> gün</span></div>
+            <div class="z3"><b>Soğuk</b><span>–<span class="t-num" data-num="dep.soguk"></span> gün</span></div>
+            <div class="z4"><b>Arşiv</b><span><span class="t-num" data-num="dep.ham"></span> yıla kadar</span></div>
+          </div>
+          <p class="t-small">Mali kayıtlar ayrı kural: <span class="t-num" data-num="kv.mali"></span> yıl, değiştirilemez.</p>
+        </div>
+        <div data-step="2">
+          <p class="t-label">Küçük dosya sorunu</p>
+          <p class="t-small">Akış verisi binlerce küçük dosya bırakır. Iceberg her gece birleştirir: hedef dosya <span class="t-num" data-num="dep.dosya"></span> MB. Fotoğraf MinIO'da, üst verisi Iceberg'de ayrı tabloda.</p>
+        </div>
+        <div data-step="3">
+          <p class="t-label">Eski Hadoop kümesi ve veri ambarı</p>
+          <div class="gecis"><span>Paralel çalışır</span><span>Veri taşınır, doğrulanır</span><span>Salt okunur</span><span>Onayla kapatılır</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="src">Kaynak: Veri Mimarı raporu, G5. MinIO nesne depolama, 8+2 silme kodlaması; Iceberg tablo biçimi.</p>
+    <aside class="notes">Depolamada üç katman var. <b>Bronze</b> ham ve değişmez: kaynaktan geldiği gibi, geri dönüp yeniden işleyebilmek için. Silver temizlenmiş ve ürün kodları eşleşmiş veri, Gold iş sorularına hazır tablolar. Veri yaşlandıkça daha ucuz katmana iner; ham veri üç yıl, mali kayıtlar on yıl. Akış verisinin bıraktığı küçük dosyaları her gece birleştiriyoruz. Eski Hadoop kümesini ve veri ambarını hemen kapatmıyoruz: önce yeni sistemle <b>paralel çalışıyor</b>, veriler taşınıp sonuçlar karşılaştırılıyor, sonra salt okunur kalıyor, iş birimleri onaylayınca kapanıyor.</aside>
+  </section>
+
+  <section class="slide" data-title="Hızlı depolar" data-duration="60">
+    <p class="istenen" data-raw><b>İstenen</b> G5 ve KA-7: en az bir iş sorunu için NoSQL; tür, anahtar, CAP; lot zinciri modeli</p>
+    <div class="sekme">Zeynep Berfe Koçak · Analitik ve Yönetişim</div>
+    <p class="t-kicker" data-motion="rise">Katman 3 · NoSQL</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">İki soru lakehouse'u bekleyemez</h2>
+    <div class="grid-2 nosql">
+      <div class="nk" data-step="1">
+        <p class="nk-tur">Anahtar-değer</p><p class="nk-ad">Redis</p>
+        <p class="t-body">Soğuk zincir alarmı için her aracın <b>son durumu</b>.</p>
+        <p class="t-small">Anahtar: <code>arac_id</code>. Erişilebilirlik öncelikli: çökerse durum Kafka'dan yeniden kurulur.</p>
+      </div>
+      <div class="nk" data-step="2">
+        <p class="nk-tur">Çizge</p><p class="nk-ad">Neo4j</p>
+        <div class="zincir-c"><span>Lot</span><i>içerir</i><span>Palet</span><i>yüklendi</i><span>Sevkiyat</span><i>teslim</i><span>Satış noktası</span></div>
+        <p class="t-small">Geri çağırmada bir lottan tüm satış noktalarına tek sorgu. Tutarlılık öncelikli: yanlış zincir göstermektense kısa süre bekler.</p>
+      </div>
+    </div>
+    <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> Cassandra; ayrı bir geniş sütun ihtiyacımız kalmadı, lot zinciri ise çizge gezinmesi ister.</p>
+    <p class="src">Kaynak: Veri Mimarı raporu (KA-7), ekip kararı 10 Kasım.</p>
+    <aside class="notes">İki soru lakehouse'un gece işini bekleyemez. Soğuk zincir alarmı için her aracın son durumunu <b>Redis</b>'te tutuyoruz; kaybolursa Kafka'dan yeniden kurulur, bu yüzden erişilebilirliği seçtik. Geri çağırmada lot, palet, sevkiyat ve satış noktası zincirini <b>Neo4j</b>'de çizge olarak tutuyoruz; burada yanlış cevap vermektense beklemeyi seçtik.</aside>
+  </section>
+
+  <section class="slide" data-title="Ürün kodu eşleştirme" data-duration="55">
+    <p class="istenen" data-raw><b>İstenen</b> KA-1: zincir kodları hangi katmanda, hangi yöntemle eşleşir; eşleşmeyen satıra ne olur?</p>
+    <div class="sekme">Zeynep Berfe Koçak · Analitik ve Yönetişim</div>
+    <p class="t-kicker" data-motion="rise">Karar noktası · ürün kodu eşleştirme</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1"><span class="t-num" data-num="ka1.zincir"></span> zincirin kodu tek ürüne iner; eşleşmeyen satır silinmez</h2>
+    <div class="ka1-grid">
+      <div class="huni">
+        <div class="hn" data-step="1"><b>1</b><p>Barkod</p><span>kesin, çoğu burada eşleşir</span></div>
+        <div class="hn" data-step="1"><b>2</b><p>Onaylı eşleşme</p><span>bir kez onaylanan tekrar sorulmaz</span></div>
+        <div class="hn" data-step="1"><b>3</b><p>Benzerlik ≥ <span class="t-num" data-num="ka1.oto"></span></p><span>otomatik kabul</span></div>
+        <div class="hn" data-step="1"><b>4</b><p>Veri sorumlusu</p><span>skor <span class="t-num" data-num="ka1.alt"></span>–<span class="t-num" data-num="ka1.oto"></span> onaya düşer</span></div>
+      </div>
+      <div class="ka1-sag" data-step="2">
+        <p class="t-label">Hedef, ciroyla ağırlıklı</p>
+        <p class="ka1-n t-num"><span data-num="ka1.h200"></span></p>
+        <p class="t-small">en çok satan <span class="t-num" data-num="ka1.ilk"></span> SKU'da (cironun <span class="t-num" data-num="ka1.ciro"></span>'i); tümünde <span class="t-num" data-num="ka1.htum"></span></p>
+        <p class="t-small ka1-k">Eşleşmeyen satır karantinaya: zincir toplamı doğru kalır, SKU tahminine girmez.</p>
+      </div>
+    </div>
+    <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> eşleştirmeyi sorgu anında yapmak, raporlar tutarsızlaşır; ham koda dokunmak, hatalı eşleşme geri alınamaz.</p>
+    <p class="src">Kaynak: Zeynep G10, KA-1. Eşleştirme tablosu küçük (<span class="t-num" data-num="ka1.tablo"></span> satır), her düğüme kopyalanarak birleştirilir.</p>
+    <aside class="notes">On iki zincir kendi ürün kodunu kullanıyor, bizim ana verimizde ise 3.200 SKU var. Eşleştirmeyi ham katmandan temiz katmana geçerken dört adımda yapıyoruz: önce barkod, sonra daha önce onaylanmış eşleşme, sonra benzerlik skoru, en son veri sorumlusunun onayı. <b>Eşleşmeyen satır silinmiyor</b>, karantinaya gidiyor; böylece zincirin toplam satışı hep doğru kalıyor.</aside>
+  </section>
+
+  <section class="slide" data-title="Güvenlik ve KVKK" data-duration="70">
+    <p class="istenen" data-raw><b>İstenen</b> Güvenlik ve KVKK: temsilci konumu ve bakkal bilgisi; ilk üç katmandaki önlemler</p>
+    <div class="sekme">Zeynep Berfe Koçak · Analitik ve Yönetişim</div>
+    <p class="t-kicker" data-motion="rise">Güvenlik ve KVKK</p>
+    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Kişisel veri daha ilk katmanda korunur</h2>
+    <div class="grid-3 guv" data-motion="stagger" data-child=".gk" data-gap=".18" data-delay=".5">
+      <div class="gk"><p class="gk-ad">Kaynakta</p><p>Her cihaz sertifikayla tanınır; sertifikasız bağlanamaz.</p><p>Fotoğraftaki yüz ve plaka alımda bulanıklaştırılır.</p></div>
+      <div class="gk"><p class="gk-ad">Alımda</p><p>MQTT ve Kafka'da mTLS ve konu başına erişim listesi.</p><p>Kurala uymayan ileti <span class="t-num" data-num="kv.dlq"></span> gün hata kuyruğunda.</p></div>
+      <div class="gk"><p class="gk-ad">Depolamada</p><p>AES-256, anahtarlar merkezde.</p><p>Analistler temsilciyi takma adla görür.</p></div>
+    </div>
+    <div class="kripto" data-step="1">
+      <p class="kripto-n t-num"><span data-num="kv.gun"></span> <small>gün</small></p>
+      <p class="t-body">Temsilci konumu her temsilci ve gün için ayrı anahtarla şifrelenir; <b><span class="t-num" data-num="kv.gun"></span> gün sonra anahtar silinir</b>, kayıt 3 yıl kalır ama konum okunamaz.</p>
+    </div>
+    <p class="src">Kaynak: Zeynep G10 (10.1-10.3), KVKK md. 4, 5, 7, 12. Güvenlik bedeli ölçüldü: Muhammed Sabit Genan, S7.</p>
+    <aside class="notes">Güvenliği ayrı bir katman olarak değil, verinin geçtiği her katmanın içine koyduk. Kaynakta sertifikasız cihaz bağlanamıyor, fotoğraftaki yüzler daha alımda bulanıklaşıyor. Alımda her servis kendi kimliğiyle ve yalnız kendi konusuna erişiyor. En ilginç kısım <b>kripto-silme</b>: vaka ham veriyi üç yıl istiyor, KVKK ise konumu gereğinden uzun tutmamamızı. Konumu temsilci ve gün başına anahtarla şifreliyoruz; otuz gün sonra anahtarı siliyoruz, kayıt duruyor ama konum artık okunamıyor.</aside>
+  </section>
+
+  <section class="slide night bare" data-title="Kapanış" data-duration="20" data-transition="iris">
+    <div class="center-v">
+      <p class="t-kicker" data-motion="rise">Kaynak, alım, depolama</p>
+      <h2 class="t-display" data-motion="blur-in">Sırada işleme ve sunum katmanları</h2>
+      <div class="ozet3" data-motion="stagger" data-child="div" data-gap=".15" data-delay=".8">
+        <div><p class="t-num"><span class="t-num" data-num="hacim.ham"></span> TB</p><span>üç yılda ham veri</span></div>
+        <div><p class="t-num"><span class="t-num" data-num="k.bolum"></span></p><span>bölüm, tepe hızdan</span></div>
+        <div><p class="t-num"><span class="t-num" data-num="demo.p2.kayip"></span></p><span>kayıp, ölçerek</span></div>
+      </div>
+      <p class="t-lead" data-motion="rise" data-delay="1.4" style="margin-top:48px">Sorularınız</p>
+    </div>
+    <aside class="notes">Kapanış: üç katmanı tamamladık. Sırada işleme ve sunum katmanları var. Sorulara geçebiliriz.</aside>
+  </section>
+
+</main>
+<script src="olcum.js"></script>
+<script src="demo_kayit.js"></script>
+<script src="values.js"></script>
+<script src="data.js"></script>
+<script src="charts.js"></script>
+<script src="motion.js"></script>
+<script src="deck.js"></script>
+<script src="demo-slayt.js"></script>
+</body>
+</html>
