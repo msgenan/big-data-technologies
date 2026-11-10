@@ -127,5 +127,12 @@
     'v.sku': { v: 3200, f: 'n0', label: 'SKU', src: VAKA }, 'v.kaynak': { v: 9, f: 'n0', label: 'Kaynak', src: VAKA },
     'v.is': { v: 5, f: 'n0', label: 'İş sorunu', src: VAKA },
   });
+
+  /* Şema akışı: kaynak başına ortalama ileti/sn (G4 hesabı) */
+  Object.assign(v, {
+    'akis.arac': { v: 110, f: 'n0', label: 'Araç ileti/sn', src: G4 }, 'akis.sensor': { v: 84, f: 'n0', label: 'Sensör paketi/sn', src: G4 },
+    'akis.terminal': { v: 80, f: 'n0', label: 'Terminal olay/sn', src: G4 }, 'akis.erp': { v: 39, f: 'n0', label: 'ERP değişiklik/sn', src: G4 },
+    'akis.foto': { v: 1.7, f: 'n1', label: 'Fotoğraf/sn', src: G4 },
+  });
   window.DECK_DATA = { values: v };
 })();

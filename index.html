@@ -128,7 +128,7 @@
     <aside class="notes">Önce toplam, sonra <b>fotoğrafın payı</b>, sonra kopya ve EC farkı.</aside>
   </section>
 
-  <section class="slide" data-title="Mimari şema" data-duration="90" data-transition="iris" data-export="image">
+  <section class="slide" id="sema" data-title="Mimari şema" data-duration="90" data-transition="iris" data-export="image">
     <p class="istenen" data-raw><b>İstenen</b> G3: Lambda, Kappa, lakehouse arasından seç, seçmediklerini gerekçelendir; tek sayfalık şema</p>
     <div class="sekme">Sefa Ünal · Veri Mimarı</div>
     <p class="t-kicker" data-motion="rise">Mimari · ortak lakehouse, akış ve toplu iş</p>
@@ -136,7 +136,7 @@
     <div class="sema-kutu">
 <!--SEMA-->
 <svg class="sema" viewBox="0 0 1570 560" role="img" aria-label="Mimari şema: kaynaklar, alım, Kafka, işleme, depolama, sunum">
-<defs><marker id="uc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10z" class="uc"/></marker><marker id="uc-k" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10z" class="uc-k"/></marker></defs>
+<defs><marker id="uc" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10z" class="uc"/></marker><marker id="uc-k" viewBox="0 0 10 10" refX="7" refY="5" markerUnits="userSpaceOnUse" markerWidth="22" markerHeight="22" orient="auto"><path d="M0,0 L10,5 L0,10z" class="uc-k"/></marker></defs>
 <text x="0" y="552" class="sutun">Kaynak</text>
 <text x="310" y="552" class="sutun">Alım</text>
 <text x="570" y="552" class="sutun">Omurga</text>
@@ -144,28 +144,29 @@
 <text x="1030" y="552" class="sutun">Depolama</text>
 <text x="1390" y="552" class="sutun">Sunum</text>
 <g class="oklar" data-motion="draw" data-gap=".03" data-delay=".3">
-<path d="M200,48 C255,48 255,48 304,48" class="ok" marker-end="url(#uc)"/>
-<path d="M200,120 C255,120 255,120 304,120" class="ok" marker-end="url(#uc)"/>
-<path d="M200,192 C255,192 255,192 304,192" class="ok" marker-end="url(#uc)"/>
-<path d="M200,264 C255,264 255,264 304,264" class="ok" marker-end="url(#uc)"/>
-<path d="M200,336 C255,336 255,372 304,372" class="ok" marker-end="url(#uc)"/>
-<path d="M200,408 C255,408 255,372 304,372" class="ok" marker-end="url(#uc)"/>
-<path d="M200,480 C255,480 255,480 304,480" class="ok" marker-end="url(#uc)"/>
-<path d="M500,48 C535,48 535,156 564,156" class="ok" marker-end="url(#uc)"/>
-<path d="M500,120 C535,120 535,156 564,156" class="ok" marker-end="url(#uc)"/>
-<path d="M500,192 C535,192 535,156 564,156" class="ok" marker-end="url(#uc)"/>
-<path d="M500,264 C535,264 535,156 564,156" class="ok" marker-end="url(#uc)"/>
-<path d="M730,68 C765,68 765,48 794,48" class="ok" marker-end="url(#uc)"/>
-<path d="M960,48 C995,48 995,48 1024,48" class="ok" marker-end="url(#uc)"/>
-<path d="M1320,48 C1355,48 1355,48 1384,48" class="ok" marker-end="url(#uc)"/>
-<path d="M730,256 C888,256 888,373 1040,373" class="ok" marker-end="url(#uc)"/>
-<path d="M500,372 C773,372 773,373 1040,373" class="ok" marker-end="url(#uc)"/>
-<path d="M500,480 C773,480 773,373 1040,373" class="ok" marker-end="url(#uc)"/>
-<path d="M730,288 C880,288 880,480 1024,480" class="ok" marker-end="url(#uc)"/>
-<path d="M1320,480 C1355,480 1355,480 1384,480" class="ok" marker-end="url(#uc)"/>
-<path d="M960,138 C1003,138 1003,283 1040,283" class="ok" marker-end="url(#uc)"/>
-<path d="M1304,193 C1347,193 1347,193 1384,193" class="ok" marker-end="url(#uc)"/>
+<path d="M200,48 C255,48 255,48 304,48" class="ok" data-a="a5" data-b="mqtt" marker-end="url(#uc)"/>
+<path d="M200,120 C255,120 255,120 304,120" class="ok" data-a="a6" data-b="uc" marker-end="url(#uc)"/>
+<path d="M200,192 C255,192 255,192 304,192" class="ok" data-a="a3" data-b="api" marker-end="url(#uc)"/>
+<path d="M200,264 C255,264 255,264 304,264" class="ok" data-a="a1" data-b="dbz" marker-end="url(#uc)"/>
+<path d="M200,336 C255,336 255,372 304,372" class="ok" data-a="a2" data-b="nifi" marker-end="url(#uc)"/>
+<path d="M200,408 C255,408 255,372 304,372" class="ok" data-a="a9" data-b="nifi" marker-end="url(#uc)"/>
+<path d="M200,480 C255,480 255,480 304,480" class="ok" data-a="a4" data-b="yuk" marker-end="url(#uc)"/>
+<path d="M500,48 C535,48 535,156 564,156" class="ok" data-a="mqtt" data-b="kafka" marker-end="url(#uc)"/>
+<path d="M500,120 C535,120 535,156 564,156" class="ok" data-a="uc" data-b="kafka" marker-end="url(#uc)"/>
+<path d="M500,192 C535,192 535,156 564,156" class="ok" data-a="api" data-b="kafka" marker-end="url(#uc)"/>
+<path d="M500,264 C535,264 535,156 564,156" class="ok" data-a="dbz" data-b="kafka" marker-end="url(#uc)"/>
+<path d="M730,68 C765,68 765,48 794,48" class="ok" data-a="kafka" data-b="flink" marker-end="url(#uc)"/>
+<path d="M960,48 C995,48 995,48 1024,48" class="ok" data-a="flink" data-b="redis" marker-end="url(#uc)"/>
+<path d="M1320,48 C1355,48 1355,48 1384,48" class="ok" data-a="redis" data-b="alarm" marker-end="url(#uc)"/>
+<path d="M730,256 C888,256 888,373 1040,373" class="ok" data-a="kafka" data-b="bronze" marker-end="url(#uc)"/>
+<path d="M500,372 C773,372 773,373 1040,373" class="ok" data-a="nifi" data-b="bronze" marker-end="url(#uc)"/>
+<path d="M500,480 C773,480 773,373 1040,373" class="ok" data-a="yuk" data-b="bronze" marker-end="url(#uc)"/>
+<path d="M730,288 C880,288 880,480 1024,480" class="ok" data-a="kafka" data-b="neo" marker-end="url(#uc)"/>
+<path d="M1320,480 C1355,480 1355,480 1384,480" class="ok" data-a="neo" data-b="geri" marker-end="url(#uc)"/>
+<path d="M960,138 C1003,138 1003,283 1040,283" class="ok" data-a="spark" data-b="silver" marker-end="url(#uc)"/>
+<path d="M1304,193 C1347,193 1347,193 1384,193" class="ok" data-a="gold" data-b="trino" marker-end="url(#uc)"/>
 </g>
+<g class="parcacik"></g>
 <g class="kt "><rect x="0" y="20" width="200" height="56" rx="8"/><text x="16" y="56" class="kt-ad">Araç telemetrisi</text></g>
 <g class="kt "><rect x="0" y="92" width="200" height="56" rx="8"/><text x="16" y="128" class="kt-ad">Hat sensörleri</text></g>
 <g class="kt "><rect x="0" y="164" width="200" height="56" rx="8"/><text x="16" y="200" class="kt-ad">El terminali</text></g>
@@ -193,34 +194,36 @@
 <g class="kt soluk"><rect x="1390" y="256" width="180" height="56" rx="8"/><text x="1406" y="292" class="kt-ad">Pano</text></g>
 <g class="kt soluk"><rect x="1390" y="452" width="180" height="56" rx="8"/><text x="1406" y="488" class="kt-ad">Geri çağırma</text></g>
 <g class="etiketler" data-motion="fade" data-delay="1.2"><text x="255" y="40" class="ok-et" text-anchor="middle">JSON 10 sn</text><text x="255" y="112" class="ok-et" text-anchor="middle">OPC-UA 1 sn</text><text x="255" y="184" class="ok-et" text-anchor="middle">JSON olay</text><text x="255" y="256" class="ok-et" text-anchor="middle">CDC</text><text x="255" y="346" class="ok-et" text-anchor="middle">CSV gün</text><text x="255" y="382" class="ok-et" text-anchor="middle">API gün</text><text x="255" y="472" class="ok-et" text-anchor="middle">JPEG</text><text x="765" y="50" class="ok-et" text-anchor="middle">akış</text><text x="888" y="306" class="ok-et" text-anchor="middle">dakikalık</text><text x="1003" y="202" class="ok-et" text-anchor="middle">gece</text></g>
-<g class="vurgu" data-step="1-1" data-motion="draw" data-gap=".18">
-<path d="M200,48 C255,48 255,48 304,48" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M500,48 C535,48 535,156 564,156" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M730,68 C765,68 765,48 794,48" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M960,48 C995,48 995,48 1024,48" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M1320,48 C1355,48 1355,48 1384,48" class="ok-k" marker-end="url(#uc-k)"/>
-</g>
 <g class="vurgu" data-step="2-2" data-motion="draw" data-gap=".18">
-<path d="M200,264 C255,264 255,264 304,264" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M500,264 C535,264 535,156 564,156" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M730,288 C880,288 880,480 1024,480" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M1320,480 C1355,480 1355,480 1384,480" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M200,48 C255,48 255,48 304,48" class="ok-k" data-a="a5" data-b="mqtt" marker-end="url(#uc-k)"/>
+<path d="M500,48 C535,48 535,156 564,156" class="ok-k" data-a="mqtt" data-b="kafka" marker-end="url(#uc-k)"/>
+<path d="M730,68 C765,68 765,48 794,48" class="ok-k" data-a="kafka" data-b="flink" marker-end="url(#uc-k)"/>
+<path d="M960,48 C995,48 995,48 1024,48" class="ok-k" data-a="flink" data-b="redis" marker-end="url(#uc-k)"/>
+<path d="M1320,48 C1355,48 1355,48 1384,48" class="ok-k" data-a="redis" data-b="alarm" marker-end="url(#uc-k)"/>
 </g>
 <g class="vurgu" data-step="3-3" data-motion="draw" data-gap=".18">
-<path d="M200,336 C255,336 255,372 304,372" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M500,372 C773,372 773,373 1040,373" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M730,256 C888,256 888,373 1040,373" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M960,138 C1003,138 1003,283 1040,283" class="ok-k" marker-end="url(#uc-k)"/>
-<path d="M1304,193 C1347,193 1347,193 1384,193" class="ok-k" marker-end="url(#uc-k)"/>
+<path d="M200,264 C255,264 255,264 304,264" class="ok-k" data-a="a1" data-b="dbz" marker-end="url(#uc-k)"/>
+<path d="M500,264 C535,264 535,156 564,156" class="ok-k" data-a="dbz" data-b="kafka" marker-end="url(#uc-k)"/>
+<path d="M730,288 C880,288 880,480 1024,480" class="ok-k" data-a="kafka" data-b="neo" marker-end="url(#uc-k)"/>
+<path d="M1320,480 C1355,480 1355,480 1384,480" class="ok-k" data-a="neo" data-b="geri" marker-end="url(#uc-k)"/>
+</g>
+<g class="vurgu" data-step="4-4" data-motion="draw" data-gap=".18">
+<path d="M200,336 C255,336 255,372 304,372" class="ok-k" data-a="a2" data-b="nifi" marker-end="url(#uc-k)"/>
+<path d="M500,372 C773,372 773,373 1040,373" class="ok-k" data-a="nifi" data-b="bronze" marker-end="url(#uc-k)"/>
+<path d="M730,256 C888,256 888,373 1040,373" class="ok-k" data-a="kafka" data-b="bronze" marker-end="url(#uc-k)"/>
+<path d="M960,138 C1003,138 1003,283 1040,283" class="ok-k" data-a="spark" data-b="silver" marker-end="url(#uc-k)"/>
+<path d="M1304,193 C1347,193 1347,193 1384,193" class="ok-k" data-a="gold" data-b="trino" marker-end="url(#uc-k)"/>
 </g>
 </svg>
 <!--/SEMA-->
     </div>
-    <p class="sema-yol" data-step="1-1"><b>Operasyonel:</b> araç → MQTT → Kafka → Flink → Redis, alarm ≤ <span class="t-num" data-num="h.i3"></span> sn</p>
-    <p class="sema-yol" data-step="2-2"><b>İzlenebilirlik:</b> ERP → Debezium → Kafka → Neo4j, geri çağırma ≤ <span class="t-num" data-num="h.i5"></span> saat</p>
-    <p class="sema-yol" data-step="3-3"><b>Analitik:</b> Bronze → Silver → Gold → Trino, tahmin her gece, promosyon haftalık</p>
-    <p class="secmedik sabit"><b>Seçmediğimiz:</b> saf Lambda, iş kuralları iki kez yazılır; Kappa, <span class="t-num" data-num="hacim.ham"></span> TB'ı Kafka'dan yeniden oynatmak pratik değil. İşleme ve sunum soluk: kapsam dışı.</p>
-    <aside class="notes">Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Şimdi üç yolu tek tek gösteriyorum: <b>operasyonel</b> yol alarmı saniyeler içinde verir, <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar, <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır.</aside>
+    <p class="sema-yol bayram" data-step="1-1"><b>Bayram:</b> ileti hızı 4 katı; araç telemetrisi <span class="t-num" data-num="k.ort"></span> → <span class="t-num" data-num="k.tepe"></span> ileti/sn</p>
+    <p class="sema-yol" data-step="2-2"><b>Operasyonel:</b> araç → MQTT → Kafka → Flink → Redis, alarm ≤ <span class="t-num" data-num="h.i3"></span> sn</p>
+    <p class="sema-yol" data-step="3-3"><b>İzlenebilirlik:</b> ERP → Debezium → Kafka → Neo4j, geri çağırma ≤ <span class="t-num" data-num="h.i5"></span> saat</p>
+    <p class="sema-yol" data-step="4-4"><b>Analitik:</b> Bronze → Silver → Gold → Trino, tahmin her gece, promosyon haftalık</p>
+    <p class="secmedik sabit"><b>Seçmediğimiz:</b> saf Lambda, kurallar iki kez yazılır; Kappa, <span class="t-num" data-num="hacim.ham"></span> TB'ı Kafka'dan yeniden oynatmak pratik değil.</p>
+    <p class="src">İşleme ve sunum soluk: bu denetimin kapsamı dışında. Noktaların yoğunluğu ileti hızının kareköküyle orantılı.</p>
+    <aside class="notes">Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Oklardaki noktalar gerçek ileti hızlarıyla akıyor. Bayramda hız dört katına çıkıyor: telemetri saniyede 110 iletiden 440'a; Kafka bu yüzden tepe hıza göre boyutlandırıldı. Şimdi üç yolu tek tek gösteriyorum: <b>operasyonel</b> yol alarmı saniyeler içinde verir, <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar, <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır.</aside>
   </section>
 
   <section class="slide night" data-title="Bölüm: Sabit" data-duration="20" data-transition="iris">
@@ -496,5 +499,6 @@
 <script src="motion.js"></script>
 <script src="deck.js"></script>
 <script src="demo-slayt.js"></script>
+<script src="sema-sahne.js"></script>
 </body>
 </html>
