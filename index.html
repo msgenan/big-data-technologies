@@ -279,7 +279,7 @@
     <aside class="notes">Dokuz kaynağın her biri geliş şekline göre <b>dört yoldan</b> birine giriyor. Araç ve sensör sürekli akıyor: ileti kuyruğu. ERP canlı veritabanı; onu yormadan değişiklikleri Debezium okuyor. POS dosyaları on iki ayrı biçimde geliyor, NiFi her dosyanın izini tutuyor. Fotoğraf 2,5 MB, kuyruğa girmiyor; doğrudan nesne depolamaya gidiyor, Kafka'ya yalnız bilgisi giriyor. Sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmediği için toplanmıyor.</aside>
   </section>
 
-  <section class="slide" data-title="Kafka bölüm sayısı" data-duration="70">
+  <section class="slide" id="kafka" data-title="Kafka bölüm sayısı" data-export="image" data-duration="70">
     <p class="istenen" data-raw><b>İstenen</b> G4: konu, bölüm sayısı, anahtar, saklama; bölüm sayısını tepe hızdan türet</p>
     <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
     <p class="t-kicker" data-motion="rise">Katman 2 · Kafka konuları</p>
@@ -293,6 +293,17 @@
         <div class="z" data-step="4"><span class="z-l" data-raw><span class="t-num">2</span> dk'da eritmek için</span><span class="z-v t-num" data-num="k.eritme"></span><span class="z-u">ileti/sn</span></div>
         <div class="z son" data-step="5"><span class="z-l">÷ <span class="t-num" data-num="k.kap"></span>/sn görev başına → <span class="t-num" data-num="k.gorev"></span> görev</span><span class="z-v t-num"><span data-motion="pen-mark" data-num="k.bolum"></span></span><span class="z-u">bölüm</span></div>
       </div>
+      <div class="k-sag">
+      <div class="k-sahne" data-step="0-5">
+        <svg id="k-sahne" viewBox="0 0 600 540" aria-label="Kafka konusunun 12 bölümü">
+          <text x="20" y="28" class="k-bas">soguk-zincir.telemetri · anahtar arac_id</text>
+          <g class="serit" data-i="0"><line x1="20" y1="70" x2="440" y2="70"/><rect class="lag" x="440" y="61" width="0" height="18"/><rect class="gorev" x="452" y="60" width="20" height="20" rx="3"/><text x="0" y="76" class="b-no">0</text></g><g class="serit" data-i="1"><line x1="20" y1="108" x2="440" y2="108"/><rect class="lag" x="440" y="99" width="0" height="18"/><rect class="gorev" x="452" y="98" width="20" height="20" rx="3"/><text x="0" y="114" class="b-no">1</text></g><g class="serit" data-i="2"><line x1="20" y1="146" x2="440" y2="146"/><rect class="lag" x="440" y="137" width="0" height="18"/><rect class="gorev" x="452" y="136" width="20" height="20" rx="3"/><text x="0" y="152" class="b-no">2</text></g><g class="serit" data-i="3"><line x1="20" y1="184" x2="440" y2="184"/><rect class="lag" x="440" y="175" width="0" height="18"/><rect class="gorev" x="452" y="174" width="20" height="20" rx="3"/><text x="0" y="190" class="b-no">3</text></g><g class="serit" data-i="4"><line x1="20" y1="222" x2="440" y2="222"/><rect class="lag" x="440" y="213" width="0" height="18"/><rect class="gorev" x="452" y="212" width="20" height="20" rx="3"/><text x="0" y="228" class="b-no">4</text></g><g class="serit" data-i="5"><line x1="20" y1="260" x2="440" y2="260"/><rect class="lag" x="440" y="251" width="0" height="18"/><rect class="gorev" x="452" y="250" width="20" height="20" rx="3"/><text x="0" y="266" class="b-no">5</text></g><g class="serit" data-i="6"><line x1="20" y1="298" x2="440" y2="298"/><rect class="lag" x="440" y="289" width="0" height="18"/><rect class="gorev" x="452" y="288" width="20" height="20" rx="3"/><text x="0" y="304" class="b-no">6</text></g><g class="serit" data-i="7"><line x1="20" y1="336" x2="440" y2="336"/><rect class="lag" x="440" y="327" width="0" height="18"/><rect class="gorev" x="452" y="326" width="20" height="20" rx="3"/><text x="0" y="342" class="b-no">7</text></g><g class="serit" data-i="8"><line x1="20" y1="374" x2="440" y2="374"/><rect class="lag" x="440" y="365" width="0" height="18"/><rect class="gorev" x="452" y="364" width="20" height="20" rx="3"/><text x="0" y="380" class="b-no">8</text></g><g class="serit" data-i="9"><line x1="20" y1="412" x2="440" y2="412"/><rect class="lag" x="440" y="403" width="0" height="18"/><rect class="gorev" x="452" y="402" width="20" height="20" rx="3"/><text x="0" y="418" class="b-no">9</text></g><g class="serit" data-i="10"><line x1="20" y1="450" x2="440" y2="450"/><rect class="lag" x="440" y="441" width="0" height="18"/><rect class="gorev" x="452" y="440" width="20" height="20" rx="3"/><text x="0" y="456" class="b-no">10</text></g><g class="serit" data-i="11"><line x1="20" y1="488" x2="440" y2="488"/><rect class="lag" x="440" y="479" width="0" height="18"/><rect class="gorev" x="452" y="478" width="20" height="20" rx="3"/><text x="0" y="494" class="b-no">11</text></g>
+          <text x="490" y="28" class="k-bas">Flink</text>
+          <g class="k-parca"></g>
+        </svg>
+        <p class="k-sayac"><span class="k-et" id="k-et">Akış normal</span> <span class="t-num" id="k-biriken"></span></p>
+        <p class="k-not">Sahne hızlandırılmış; sayılar soldaki hesaptan.</p>
+      </div>
       <div class="konular" data-step="6">
         <p class="t-label">Konu · bölüm · saklama</p>
         <div class="kr"><code>soguk-zincir.telemetri</code><span data-num="konu.telemetri.b"></span><span><span data-num="konu.telemetri.s"></span> gün</span></div>
@@ -302,9 +313,10 @@
         <div class="kr"><code>&lt;konu&gt;.dlq</code><span data-num="konu.dlq.b"></span><span><span data-num="konu.dlq.s"></span> gün</span></div>
         <p class="t-small kr-not">Fabrika sensörlerinde <span class="t-num" data-num="a6.olcum"></span> ölçüm/sn, hat başına pakete girince <span class="t-num" data-num="a6.ileti"></span> ileti/sn.</p>
       </div>
+      </div>
     </div>
     <p class="src">Kaynak: G4 veri alımı, Bölüm 3. Görev kapasitesi varsayım, ölçülmedi.</p>
-    <aside class="notes">Bölüm sayısını soğuk zincir konusu üzerinden türetiyorum. Bin yüz araç on saniyede bir yolluyor: saniyede yüz on ileti. Bayramda dört katı, üç yıl sonra yedi yüz altmış. Asıl belirleyici kesinti: Flink on dakika durursa yaklaşık <b>456 bin ileti</b> birikir; bunu iki dakikada eritmek için on görev gerekir. On ikiyi seçtik çünkü 2, 3, 4 ve 6'ya bölünür; sonradan bölüm artırmak aracın ölçüm sırasını bozardı. Diğer konular aynı kuralla.</aside>
+    <aside class="notes">Bölüm sayısını soğuk zincir konusu üzerinden türetiyorum. Bin yüz araç on saniyede bir yolluyor: saniyede yüz on ileti. Bayramda dört katı, üç yıl sonra yedi yüz altmış. Asıl belirleyici kesinti: Flink on dakika durursa yaklaşık <b>456 bin ileti</b> birikir; bunu iki dakikada eritmek için on görev gerekir. On ikiyi seçtik çünkü 2, 3, 4 ve 6'ya bölünür; sonradan bölüm artırmak aracın ölçüm sırasını bozardı. Sağda bunu canlı görüyorsunuz: on iki şerit, Flink durunca kırmızı birikim, on görev dönünce eriyor; sahne hızlandırılmış. Son tuşta diğer konular, aynı kuralla.</aside>
   </section>
 
   <section class="slide" data-title="Kanıt: güvenlik bedeli" data-duration="60">
@@ -506,5 +518,6 @@
 <script src="demo-slayt.js"></script>
 <script src="sema-sahne.js"></script>
 <script src="hacim-sahne.js"></script>
+<script src="kafka-sahne.js"></script>
 </body>
 </html>
