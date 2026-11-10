@@ -213,3 +213,10 @@
 .sema .parcacik rect { fill: var(--ink-2); }
 .sema .parcacik .tepe { fill: var(--bad); }
 .sema-yol.bayram b { color: var(--bad); }
+
+/* Hacim: ne olursa? */
+.ne-olursa { margin-top: 8px; padding: 18px 22px; border: 2px dashed var(--pen); border-radius: 12px; display: flex; flex-direction: column; gap: 12px; }
+.ne-olursa label { display: grid; grid-template-columns: 190px 1fr 96px; align-items: center; gap: 14px; font: 400 24px/1.2 var(--f-body); }
+.ne-olursa input[type=range] { width: 100%; accent-color: var(--pen); height: 28px; cursor: pointer; }
+.ne-olursa b { font-size: 34px; color: var(--pen); text-align: right; }
+.hacim-grid .chart-bar .cb-fill { transition: width .45s var(--e-in); }

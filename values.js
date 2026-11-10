@@ -134,5 +134,6 @@
     'akis.terminal': { v: 80, f: 'n0', label: 'Terminal olay/sn', src: G4 }, 'akis.erp': { v: 39, f: 'n0', label: 'ERP değişiklik/sn', src: G4 },
     'akis.foto': { v: 1.7, f: 'n1', label: 'Fotoğraf/sn', src: G4 },
   });
+  window.HACIM_GIRDI = { kaynak, buyume: 0.20, sezonKat: 4, sezonGun: 90 };   // hacim-sahne.js yeniden hesaplar
   window.DECK_DATA = { values: v };
 })();

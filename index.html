@@ -108,7 +108,7 @@
     <aside class="notes">Yönerge her iş sorusunun hangi kaynağa ihtiyaç duyduğunu ve işe yaramayan kaynağa ne yapacağımızı soruyor. Matris bunu gösteriyor: <b>sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmiyor</b>, bu yüzden toplamıyoruz; ne depolama maliyeti ne KVKK yükü. Alttaki beş V her boyutun TazeRota'daki karşılığı: hacmi fotoğraf ve sensör getiriyor, hızı sensör ve araç, çeşitliliği altı farklı biçim; doğruluk sorunu sensör hatası ve düzeltilen dosyalar; değer de beş iş sorusunun kendisi.</aside>
   </section>
 
-  <section class="slide" data-title="Hacim" data-duration="75" data-transition="iris">
+  <section class="slide" id="hacim" data-title="Hacim" data-duration="75" data-transition="iris" data-export="image">
     <p class="istenen" data-raw><b>İstenen</b> G2: her kaynak için saklama sonu hacmi; 4 kat tepe, çoğaltma ve sıkıştırmayla gerçek disk</p>
     <div class="sekme">Sefa Ünal · Veri Mimarı</div>
     <p class="t-kicker" data-motion="rise">Katman 1 · Kaynaklar ve hacim</p>
@@ -122,10 +122,15 @@
           <div><p class="t-small" data-raw>8+2 EC</p><p class="kap-v"><span class="t-num kap-n pen" data-num="hacim.ec"></span> <span class="t-small">TB</span></p></div>
         </div>
         <p class="t-body" data-step="2">Aynı veri <span data-motion="pen-mark" data-mark="underline"><span class="t-num" data-num="hacim.ec_fark"></span> TB daha az</span> diskle</p>
+        <div class="ne-olursa" data-step="3">
+          <p class="t-label">Ne olursa?</p>
+          <label><span>Yıllık büyüme</span><input type="range" id="h-buyume" min="0" max="40" step="5" value="20"><b class="t-num" id="h-buyume-d" data-raw>%20</b></label>
+          <label><span>Sezonda hacim</span><input type="range" id="h-sezon" min="1" max="6" step="1" value="4"><b class="t-num" id="h-sezon-d" data-raw>4 kat</b></label>
+        </div>
       </div>
     </div>
     <p class="src">Kaynak: Veri Mimarı raporu (G2). Mevsim çarpanı <span data-num="hacim.mevsim"></span>, 3 yıllık büyüme <span data-num="hacim.buyume"></span>, TB.</p>
-    <aside class="notes">Önce toplam, sonra <b>fotoğrafın payı</b>, sonra kopya ve EC farkı.</aside>
+    <aside class="notes">Yönerge her kaynağın üç yıllık hacmini, dört kat sezon tepesini, çoğaltma ve sıkıştırmayı istiyor. Üç yılda <b>578 TB ham veri</b>; bunun yüzde altmışı raf fotoğrafı, çünkü fotoğraf zaten sıkıştırılmış, küçülmüyor. Üç kopya tutarsak 1.371 TB disk gerekir; 8+2 silme kodlamasıyla 571 TB, yani aynı veri 800 TB daha az diskle. Son tuşta kaydırıcılar var: büyüme ya da sezon katı değişirse bütün sayılar aynı formülle yeniden hesaplanıyor. Hoca "büyüme yüzde otuz olsa?" diye sorarsa burada gösterebiliriz.</aside>
   </section>
 
   <section class="slide" id="sema" data-title="Mimari şema" data-duration="90" data-transition="iris" data-export="image">
@@ -500,5 +505,6 @@
 <script src="deck.js"></script>
 <script src="demo-slayt.js"></script>
 <script src="sema-sahne.js"></script>
+<script src="hacim-sahne.js"></script>
 </body>
 </html>
