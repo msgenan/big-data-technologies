@@ -443,12 +443,12 @@
       <div class="nk" data-step="2">
         <p class="nk-tur">Çizge</p><p class="nk-ad">Neo4j</p>
         <div class="zincir-c"><span>Lot</span><i>içerir</i><span>Palet</span><i>yüklendi</i><span>Sevkiyat</span><i>teslim</i><span>Satış noktası</span></div>
-        <p class="t-small">Geri çağırmada bir lottan tüm satış noktalarına tek sorgu. Tutarlılık öncelikli: yanlış zincir göstermektense kısa süre bekler.</p>
+        <p class="t-small">Anahtar: <code>lot_id</code>; yalnız kimlikler, kişisel veri yok. Bir lottan tüm satış noktalarına tek sorgu. Tutarlılık öncelikli: yanlış zincir göstermektense kısa süre bekler.</p>
       </div>
     </div>
-    <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> Cassandra; ayrı bir geniş sütun ihtiyacımız kalmadı, lot zinciri ise çizge gezinmesi ister.</p>
-    <p class="src">Kaynak: Veri Mimarı raporu (KA-7), ekip kararı 10 Kasım.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: G5 ve KA-7: en az bir iş sorunu için NoSQL; tür, anahtar, CAP; lot zinciri modeli. İki soru lakehouse'un gece işini bekleyemez. Soğuk zincir alarmı için her aracın son durumunu <b>Redis</b>'te tutuyoruz; kaybolursa Kafka'dan yeniden kurulur, bu yüzden erişilebilirliği seçtik. Geri çağırmada lot, palet, sevkiyat ve satış noktası zincirini <b>Neo4j</b>'de çizge olarak tutuyoruz; burada yanlış cevap vermektense beklemeyi seçtik.</aside>
+    <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> Cassandra; her soru için ayrı tablo ister, palet bölününce zincir elle kurulur. Yazma hızına gerek yok, hedef 2 saat.</p>
+    <p class="src">Kaynak: Veri Mimarı raporu (KA-7), Sefa 10 Kasım, ekip onayı 12 Kasım.</p>
+    <aside class="notes">Yönerge burada şunu istiyor: G5 ve KA-7: en az bir iş sorunu için NoSQL; tür, anahtar, CAP; lot zinciri modeli. İki soru lakehouse'un gece işini bekleyemez. Soğuk zincir alarmı için her aracın son durumunu <b>Redis</b>'te tutuyoruz; kaybolursa Kafka'dan yeniden kurulur, bu yüzden erişilebilirliği seçtik. Geri çağırmada lot, palet, sevkiyat ve satış noktası zincirini <b>Neo4j</b>'de çizge olarak tutuyoruz; burada yanlış cevap vermektense beklemeyi seçtik. Palet bölünür ya da yeniden yüklenirse çizgeye yalnız yeni bir bağlantı eklenir. Çizgede yalnız lot, palet, sevkiyat ve satış noktası kimlikleri var; bakkal sahibinin adı, telefonu girmez. Bedeli: kümelenme ve yedekli çalışma ücretli Enterprise sürümünde (G12 maliyetinde); yazma ölçeklenmesi sınırlı ama lot ve palet olayları az. Cassandra'yı seçmedik: her soru için ayrı tablo ister, zinciri yazarken elle kurmak gerekir; hızlı yazma üstünlüğü 2 saatlik geri çağırma hedefi için gereksiz.</aside>
   </section>
 
   <section class="slide" data-title="Ürün kodu eşleştirme" data-duration="55">
