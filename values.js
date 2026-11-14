@@ -72,10 +72,16 @@
     v['konu.' + k + '.s'] = { v: s, f: 'n0', label: 'Saklama (gün)', src: G4 };
   }
 
-  /* Canlı demo provaları: demo_kayit.js (araclar/demo_aktar.py <- canli_demo/prova*.log) */
-  const K = window.DEMO_KAYIT, DM = 'Canlı demo provası, 10 Kasım';
+  /* Demo kaydı: demo_kayit.js (araclar/demo_aktar.py <- canli_demo/prova*.log, prova*.jsonl, mosquitto.conf) */
+  const K = window.DEMO_KAYIT, DM = 'Demo koşusu, Docker, 10 Kasım';
   const olay = (o) => K.duzeltilmis.olaylar.find((x) => x.olay === o).t;
+  const dTepe = Math.max(...K.akis.map((a) => a.yolda));
+  const bosaldi = K.akis.find((a) => a.t > olay('baglandi') && a.yolda < 50).t;
   Object.assign(v, {
+    'demo.p1.alinan': { v: K.prova1.alinan, f: 'n0', label: 'Prova 1 Kafka\'ya ulaşan', src: DM },
+    'demo.yeni_sinir': { v: K.kuyruk, f: 'n0', label: 'Yeni aracı kuyruğu', src: 'canli_demo/mqtt/mosquitto.conf, max_queued_messages' },
+    'demo.tepe': { v: dTepe, f: 'n0', label: 'Kesinti sonunda bekleyen', src: DM + ', kuyruk 500.000' },
+    'demo.bosalma': { v: bosaldi - olay('baglandi'), f: 'n0', label: 'Birikimin boşalması (sn)', src: DM + ', kuyruk 500.000' },
     'demo.p1.kayip': { v: K.prova1.kayip, f: 'n0', label: 'Prova 1 kayıp', src: DM + ', varsayılan aracı kuyruğu' },
     'demo.p1.gonderilen': { v: K.prova1.gonderilen, f: 'n0', label: 'Prova 1 gönderilen', src: DM },
     'demo.p2.kayip': { v: K.duzeltilmis.kayip, f: 'n0', label: 'Kayıp', src: DM + ', kuyruk 500.000' },
