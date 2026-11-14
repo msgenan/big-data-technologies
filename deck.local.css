@@ -7,20 +7,37 @@
 .sekme { position: absolute; right: 0; top: 46px; padding: 18px 26px 18px 30px; background: var(--pen-wash); color: var(--pen);
   font: 700 24px/1 var(--f-body); letter-spacing: .02em; border-radius: 10px 0 0 10px; }
 
-/* Kapak: ekip satırı */
-.ekip { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 0; margin-top: 72px; }
-.ekip > div { padding: 22px 64px 4px 0; margin-right: 64px; border-top: 4px solid var(--ink); }
+/* Fotoğraflı slaytlar (kapak, bölüm açılışları): tam sayfa görsel, soldan koyulaşan perde; yazı solda */
+.slide.foto > .zemin { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; display: block; }
+.slide.foto > .perde { position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(90deg, rgba(9,13,32,.96) 0%, rgba(9,13,32,.92) 44%, rgba(9,13,32,.78) 58%, rgba(9,13,32,.3) 76%, rgba(9,13,32,0) 92%); }
+.acilis-s .acilis, .acilis-s .t-display { text-shadow: 0 2px 18px rgba(9,13,32,.8); }
+.deck-static .dongu, .deck-render .dongu, .deck-embed .dongu { display: none; }
+@media (prefers-reduced-motion: reduce) { .dongu { display: none; } }
+
+/* Kapak */
+.kapak .perde { background: linear-gradient(90deg, rgba(9,13,32,.92) 0%, rgba(9,13,32,.78) 34%, rgba(9,13,32,.2) 62%, rgba(9,13,32,0) 80%),
+  linear-gradient(0deg, rgba(9,13,32,.95) 0%, rgba(9,13,32,.6) 18%, rgba(9,13,32,0) 36%); }
+.kapak-ic { position: absolute; left: var(--pad-l); top: 170px; width: 1060px; }
+.kapak .t-display { font-size: 136px; line-height: .98; text-wrap: balance; }
+.kapak-alt { font: 400 36px/1.3 var(--f-body); color: var(--ink-2); margin-top: 34px; }
+.ekip { position: absolute; left: var(--pad-l); bottom: 78px; display: grid; grid-template-columns: repeat(3, auto); justify-content: start; }
+.ekip > div { padding: 20px 56px 0 0; margin-right: 56px; border-top: 4px solid var(--pen); }
 .ekip > div:last-child { margin-right: 0; }
-.ekip .ad { font: 400 56px/1 var(--f-head); }
-.ekip .rol { font: 700 26px/1.2 var(--f-body); color: var(--pen); margin-top: 14px; }
+.ekip .ad { font: 400 50px/1 var(--f-head); color: var(--ink); }
+.ekip .rol { font: 700 26px/1.2 var(--f-body); color: var(--pen); margin-top: 12px; }
+
+.kapanis .perde { background: linear-gradient(90deg, rgba(9,13,32,.96) 0%, rgba(9,13,32,.9) 46%, rgba(9,13,32,.55) 66%, rgba(9,13,32,.15) 86%, rgba(9,13,32,0) 100%); }
 
 /* Bölüm açılışı: kişi tanıtımı */
-.acilis { display: grid; grid-template-columns: 1fr 1fr; gap: 110px; margin-top: 64px; }
+.acilis-s .t-display { font-size: 128px; }
+.acilis { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 64px; max-width: 1120px; }
 .acilis h3 { font: 700 var(--s-label)/1.2 var(--f-body); color: var(--ink-2); text-transform: uppercase; letter-spacing: .12em;
   padding-bottom: 18px; border-bottom: 3px solid var(--rule); margin-bottom: 30px; }
+.acilis .list > * { font-size: 34px; }
 .akis { counter-reset: a; display: flex; flex-direction: column; gap: 22px; }
-.akis > p { counter-increment: a; font: 400 var(--s-body)/1.3 var(--f-body); padding-left: 76px; position: relative; }
-.akis > p::before { content: counter(a, decimal-leading-zero); position: absolute; left: 0; top: .08em; font: 400 40px/1 var(--f-figure); color: var(--pen); }
+.akis > p { counter-increment: a; font: 400 34px/1.3 var(--f-body); padding-left: 72px; position: relative; }
+.akis > p::before { content: counter(a, decimal-leading-zero); position: absolute; left: 0; top: .06em; font: 400 38px/1 var(--f-figure); color: var(--pen); }
 
 /* Hacim */
 .hacim-grid { display: grid; grid-template-columns: 1fr 560px; gap: 90px; margin-top: 70px; align-items: start; }

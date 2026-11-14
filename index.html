@@ -12,20 +12,26 @@
 <body>
 <main class="deck" data-texture="grid">
 
-  <section class="slide" data-title="Kapak" data-duration="20" data-transition="fade" data-camera="push">
-    <div class="center-v">
+  <section class="slide night bare foto kapak" data-title="Kapak" data-duration="25" data-transition="fade" data-export="image">
+    <img class="zemin" src="medya/kapak.webp" alt="">
+    <video class="zemin dongu" src="medya/kapak.mp4" poster="medya/kapak.webp" muted autoplay loop playsinline aria-hidden="true"></video>
+    <div class="perde"></div>
+    <div class="kapak-ic">
       <p class="t-kicker" data-motion="rise" data-raw>YBS<span class="t-num">025</span> Büyük Veri Teknolojileri · Vaka A · Ara denetim</p>
-      <h1 class="t-display measure" data-motion="line-rise" data-delay=".15">TazeRota: dokuz kaynaktan tek veri platformu</h1>
-      <div class="ekip" data-motion="stagger" data-child="div" data-gap=".12" data-delay=".9">
-        <div><p class="ad">Sefa Ünal</p><p class="rol">Veri Mimarı</p></div>
-        <div><p class="ad">Muhammed Sabit Genan</p><p class="rol">Veri Mühendisi</p></div>
-        <div><p class="ad">Zeynep Berfe Koçak</p><p class="rol">Analitik ve Yönetişim</p></div>
-      </div>
+      <h1 class="t-display" data-motion="line-rise" data-delay=".15">TazeRota: dokuz kaynaktan tek veri platformu</h1>
+      <p class="kapak-alt" data-motion="rise" data-delay=".7">Soğuk zincirli hızlı tüketim: fabrikadan rafa, ilk üç katman</p>
     </div>
-    <aside class="notes">Açılış.</aside>
+    <div class="ekip" data-motion="stagger" data-child="div" data-gap=".12" data-delay="1">
+      <div><p class="ad">Sefa Ünal</p><p class="rol">Veri Mimarı</p></div>
+      <div><p class="ad">Muhammed Sabit Genan</p><p class="rol">Veri Mühendisi</p></div>
+      <div><p class="ad">Zeynep Berfe Koçak</p><p class="rol">Analitik ve Yönetişim</p></div>
+    </div>
+    <aside class="notes">Merhaba. Biz Vaka A'yı, <b>TazeRota</b>'yı çalıştık: süt ürünü, atıştırmalık ve içecek üretip soğuk zincirle rafa taşıyan bir şirket; verisi dokuz ayrı yerde. Ben Sefa Ünal, veri mimarıyım; Sabit veri mühendisi, Zeynep analitik ve yönetişimden sorumlu. Bu ara denetimde <b>ilk üç katmanı</b>, yani kaynak, alım ve depolamayı anlatacağız; her birimiz yaklaşık beş dakika.</aside>
   </section>
 
-  <section class="slide night" data-title="Bölüm: Sefa" data-duration="20" data-transition="iris">
+  <section class="slide night foto acilis-s" data-title="Bölüm: Sefa" data-duration="20" data-transition="iris" data-export="image">
+    <img class="zemin" src="medya/market.webp" alt="" data-motion="still-drift" data-zoom="1.02 1.1" data-from="72% 50%" data-to="66% 46%" data-dur="26">
+    <div class="perde"></div>
     <p class="t-kicker" data-motion="rise" data-raw>Bölüm 1 / 3 · Veri Mimarı</p>
     <h2 class="t-display" data-motion="line-rise" data-delay=".1">Sefa Ünal</h2>
     <div class="acilis">
@@ -47,7 +53,7 @@
         </div>
       </div>
     </div>
-    <aside class="notes">Kendini bir cümlede tanıt, sonra <b>yaptığın işi</b> ve anlatacağın üç konuyu söyle.</aside>
+    <aside class="notes">Ekipte veri mimarıyım. Tuş: projede <b>gereksinimleri ve izlenebilirliği</b> çıkardım, üç yıllık hacmi hesapladım, mimari deseni ve depolama kararlarını yazdım. Tuş: şimdi önce iş sorunlarını ve hedefleri, sonra kaynakları ve hacmi, en son mimari şemayı anlatacağım.</aside>
   </section>
 
   <section class="slide" data-title="Vaka ve görev" data-duration="40">
@@ -231,7 +237,9 @@
     <aside class="notes">Yönerge burada şunu istiyor: G3: Lambda, Kappa, lakehouse arasından seç, seçmediklerini gerekçelendir; tek sayfalık şema. Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Oklardaki noktalar gerçek ileti hızlarıyla akıyor. Bayramda hız dört katına çıkıyor: telemetri saniyede 110 iletiden 440'a; Kafka bu yüzden tepe hıza göre boyutlandırıldı. Şimdi üç yolu tek tek gösteriyorum: <b>operasyonel</b> yol alarmı saniyeler içinde verir, <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar, <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır. Soluk kutular finalin konusu: Trino analistin keşif sorguları için, ClickHouse panonun hızı için; ClickHouse'a yalnız Gold'daki özet tablolar gider, kişisel veri ve konum gitmez, gece işinden sonra yenilenir. Pano Superset, kendi ortamımızda çalışır.</aside>
   </section>
 
-  <section class="slide night" data-title="Bölüm: Sabit" data-duration="20" data-transition="iris">
+  <section class="slide night foto acilis-s" data-title="Bölüm: Sabit" data-duration="20" data-transition="iris" data-export="image">
+    <img class="zemin" src="medya/kamyon-gece.webp" alt="" data-motion="still-drift" data-zoom="1.02 1.1" data-from="74% 46%" data-to="70% 42%" data-dur="26">
+    <div class="perde"></div>
     <p class="t-kicker" data-motion="rise" data-raw>Bölüm 2 / 3 · Veri Mühendisi</p>
     <h2 class="t-display" data-motion="line-rise" data-delay=".1">Muhammed Sabit Genan</h2>
     <div class="acilis">
@@ -249,11 +257,11 @@
         <div class="akis">
           <p>Her kaynak hangi yoldan geliyor</p>
           <p>Kafka konuları ve bölüm sayısı</p>
-          <p>Kanıt: ölçüm ve canlı demo</p>
+          <p>Kanıt: ölçüm ve kesinti kaydı</p>
         </div>
       </div>
     </div>
-    <aside class="notes">Kendini bir cümlede tanıt, sonra <b>yaptığın işi</b> ve anlatacağın üç konuyu söyle.</aside>
+    <aside class="notes">Teşekkürler Sefa. Ben Muhammed Sabit Genan, veri mühendisiyim. Tuş: projede <b>veri alımını ve Kafka tasarımını</b> yaptım, güvenliğin hatta getirdiği yükü Docker'da ölçtüm; toplu ve akış işleme tasarımı ile Spark kanıtı da bende. Tuş: şimdi her kaynağın hangi yoldan geldiğini, Kafka bölüm sayısını nasıl türettiğimizi ve iki kanıtı göstereceğim: güvenlik ölçümü ve kesinti kaydı.</aside>
   </section>
 
   <section class="slide" data-title="Alım yolları" data-duration="70">
@@ -401,7 +409,9 @@
     <aside class="notes">Bu, 10 Kasım'da Docker'da yaptığımız <b>gerçek bir koşunun kaydı</b>; sınıfta canlı çalıştırmıyorum ama ekrandaki her sayı o koşudan. Bin yüz araç bayram tepesinde saniyede 440 ileti yolluyor: önce MQTT aracısına, mTLS ve erişim listesiyle; köprü iletileri Kafka'nın on iki bölümüne taşıyor, sağdaki çubuklar bölümlere düşen ileti. Her iletinin bir sıra numarası var; alttaki sayaçlar gönderileni, ulaşanı, bekleyeni ve kaybı sayıyor. Tuş: şimdi aracıyı durduruyoruz, docker pause ile; ağ kesintisi gibi. Araçlar aracıya ulaşamıyor, iletiler <b>araçta birikiyor</b>: kırmızı yığın. Kesinti 15 saniye sürdü, kayıt burada iki kat hızlı. Tuş: bağlantı geri geliyor; biriken altı binden fazla ileti yaklaşık bir saniyede Kafka'ya akıyor, bunu yarı hızda gösteriyorum. Kayıp sıfır. Tuş: ama bu <b>ikinci koşu</b>. İlk koşuda aynı kesintide <b>3.820 ileti kaybettik</b>: aracının köprü için tuttuğu kuyruk varsayılan olarak bin ileti; bağlantı gelince biriken akın onu taşırdı. Soldaki eğri bağlantıdan sonra sıfıra dönmüyor; o iletiler hiç gelmedi. Kuyruğu beş yüz bine çıkardık, on beş dakikalık kesintiye yetecek kadar; aynı kesinti, kayıp sıfır. Tuş: asıl ders: kayıp kendini göstermedi; <b>her iletinin sıra numarasını sayarak bulduk</b>. Ölçmeseydik varsayılan ayarla üretime çıkacaktık. Şimdi sözü Zeynep'e bırakıyorum.</aside>
   </section>
 
-  <section class="slide night" data-title="Bölüm: Zeynep" data-duration="20" data-transition="iris">
+  <section class="slide night foto acilis-s" data-title="Bölüm: Zeynep" data-duration="20" data-transition="iris" data-export="image">
+    <img class="zemin" src="medya/depo.webp" alt="" data-motion="still-drift" data-zoom="1.02 1.1" data-from="70% 52%" data-to="64% 48%" data-dur="26">
+    <div class="perde"></div>
     <p class="t-kicker" data-motion="rise" data-raw>Bölüm 3 / 3 · Analitik ve Yönetişim</p>
     <h2 class="t-display" data-motion="line-rise" data-delay=".1">Zeynep Berfe Koçak</h2>
     <div class="acilis">
@@ -417,13 +427,13 @@
       <div data-step="2">
         <h3>Şimdi ne anlatacağım</h3>
         <div class="akis">
-          <p>Depolama katmanları</p>
+          <p>Depolama katmanları ve hızlı depolar</p>
           <p>Ürün kodu eşleştirme</p>
           <p>Güvenlik ve KVKK</p>
         </div>
       </div>
     </div>
-    <aside class="notes">Kendini bir cümlede tanıt, sonra <b>yaptığın işi</b> ve anlatacağın üç konuyu söyle.</aside>
+    <aside class="notes">Teşekkürler Sabit. Ben Zeynep Berfe Koçak, analitik ve yönetişimden sorumluyum. Tuş: projede <b>teknoloji seçim tablosunu</b>, kişisel veri envanterini ve KVKK önlemlerini, kripto-silmeyi, kalite kurallarını ve ürün kodu eşleştirmesini hazırladım. Tuş: şimdi verinin nerede ve nasıl saklandığını, iki hızlı depoyu, zincirlerin ürün kodlarının nasıl eşleştiğini ve kişisel veriyi nasıl koruduğumuzu anlatacağım.</aside>
   </section>
 
   <section class="slide" data-title="Depolama katmanları" data-duration="55">
@@ -534,7 +544,9 @@
     <aside class="notes">Yönerge burada şunu istiyor: Güvenlik ve KVKK: temsilci konumu ve bakkal bilgisi; ilk üç katmandaki önlemler. Güvenliği ayrı bir katman olarak değil, verinin geçtiği her katmanın içine koyduk. Kaynakta sertifikasız cihaz bağlanamıyor, fotoğraftaki yüzler daha alımda, kısıtlı yükleme alanında bulanıklaşıyor; ham katmana yalnız bulanık kopya giriyor, <b>orijinal saklanmıyor</b>. Raf analizi için yüze ihtiyacımız yok, amacı olmayan veriyi tutmuyoruz (md. 4); yüzlü fotoğraf yüz tanımada kullanılırsa biyometrik veriye dönüşür (md. 6). Alımda her servis kendi kimliğiyle ve yalnız kendi konusuna erişiyor. En ilginç kısım <b>kripto-silme</b>: vaka ham veriyi üç yıl istiyor, KVKK ise konumu gereğinden uzun tutmamamızı. Konumu temsilci ve gün başına anahtarla şifreliyoruz; otuz gün sonra anahtarı siliyoruz, kayıt duruyor ama konum artık okunamıyor.</aside>
   </section>
 
-  <section class="slide night bare" data-title="Kapanış" data-duration="20" data-transition="iris">
+  <section class="slide night bare foto kapanis" data-title="Kapanış" data-duration="20" data-transition="iris" data-export="image">
+    <img class="zemin" src="medya/kapak.webp" alt="" data-motion="still-drift" data-zoom="1.02 1.08" data-from="72% 60%" data-to="68% 56%" data-dur="30">
+    <div class="perde"></div>
     <div class="center-v">
       <p class="t-kicker" data-motion="rise">Kaynak, alım, depolama</p>
       <h2 class="t-display" data-motion="blur-in">Sırada işleme ve sunum katmanları</h2>
@@ -545,7 +557,7 @@
       </div>
       <p class="t-lead" data-motion="rise" data-delay="1.4" style="margin-top:48px">Sorularınız</p>
     </div>
-    <aside class="notes">Kapanış: üç katmanı tamamladık. Sırada işleme ve sunum katmanları var. Sorulara geçebiliriz.</aside>
+    <aside class="notes">Özetle: üç yılda <b>578 TB</b> ham veri, tepe hızdan türetilmiş <b>12 bölüm</b> ve kesinti kaydında ölçerek bulup düzelttiğimiz kayıp; ikinci koşuda sıfır. Kaynak, alım ve depolama katmanları hazır; sırada işleme ve sunum katmanları var. Sorularınızı alabiliriz.</aside>
   </section>
 
 </main>
@@ -557,6 +569,9 @@
 <script src="motion.js"></script>
 <script src="deck.js"></script>
 <script src="demo-slayt.js"></script>
+<script>/* kapak döngüsü yalnız canlı modda ve hareket azaltılmamışsa oynar; diğer modlarda afiş (kapak.webp) görünür */
+(function () { const v = document.querySelector('video.dongu'); if (!v) return;
+  if (!window.Deck || Deck.mode !== 'live' || matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); v.remove(); } })();</script>
 <script src="sema-sahne.js"></script>
 <script src="hacim-sahne.js"></script>
 <script src="kafka-sahne.js"></script>
