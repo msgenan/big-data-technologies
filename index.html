@@ -340,32 +340,65 @@
     <aside class="notes">Veri Mühendisi olarak denetim görevim şuydu: güvenlik önlemleri hattı yavaşlatıyor mu? Docker'da şifresiz bağlantı ile mTLS artı erişim listesini karşılaştırdım. Kafka'da en yavaş yüzde birlik iletiler <b>0,4 ms</b> gecikti, MQTT'de fark ölçülemedi. Altı yüz bin ileti gönderdim, hepsi geldi. Yetkisiz sertifikalı cihaz yayın yapamadı. Bedeli yeniden bağlanmada: birkaç milisaniye.</aside>
   </section>
 
-  <section class="slide night" id="demo" data-title="Canlı demo" data-duration="75" data-transition="iris" data-export="image">
+  <section class="slide night" id="demo" data-title="Demo kaydı: kesinti ve kayıp" data-duration="80" data-transition="iris" data-export="image">
+    <img class="d-zemin" src="medya/kavsak.webp" alt="">
     <p class="istenen" data-raw><b>Sınadığımız</b> Bağlantı koparsa ileti kaybolur mu? Alım katmanının dayanıklılığı, ölçerek</p>
     <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
-    <p class="t-kicker d-ust" data-motion="rise"><span class="lamba" id="d-lamba"></span><span id="d-kaynak">Kayıt · Docker’da gerçek koşu, 10 Kasım</span></p>
-    <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Bağlantı kopsa da ileti kaybolmuyor</h2>
-    <div class="d-sayac">
-      <div><p class="t-label">Araçların gönderdiği</p><p class="d-n t-num" id="d-gonderilen" data-num="demo.p2.gonderilen"></p></div>
-      <div><p class="t-label">Kafka'ya ulaşan</p><p class="d-n t-num" id="d-alinan" data-num="demo.p2.alinan"></p></div>
-      <div><p class="t-label">Araçta bekleyen</p><p class="d-n t-num" id="d-yolda" data-num="demo.p2.yolda"></p></div>
-      <div class="d-kayip"><p class="t-label">Kayıp</p><p class="d-n t-num" id="d-kayip" data-num="demo.p2.kayip"></p></div>
-    </div>
-    <div class="d-alt">
-      <div class="d-grafik-kutu">
-        <p class="t-label">Araçta bekleyen ileti, son 60 sn</p>
-        <svg id="d-grafik" viewBox="0 0 1000 200" preserveAspectRatio="none"><path class="d-alan" d=""/><path class="d-cizgi" d=""/></svg>
+    <p class="t-kicker d-ust" data-motion="rise"><span class="d-rozet">Kayıt</span><span>Docker’da gerçek koşu · <span data-raw>10 Kasım</span></span><span class="d-saat" id="d-saat" data-raw></span></p>
+    <h2 class="t-title" data-motion="line-rise" data-delay=".1">Kaybı ancak ölçerek bulduk</h2>
+
+    <div class="d-sahne" data-step="0-2">
+      <svg id="d-svg" viewBox="0 0 1570 400" data-raw aria-label="Araçlardan MQTT aracısı ve köprü üzerinden Kafka'nın 12 bölümüne ileti akışı">
+        <defs>
+          <symbol id="d-tir" viewBox="0 0 72 40"><rect x="0" y="2" width="48" height="28" rx="3"/><path d="M50 10h13l7 9v11H50z"/><circle cx="13" cy="34" r="5"/><circle cx="58" cy="34" r="5"/></symbol>
+        </defs>
+        <text x="0" y="34" class="d-bas"><tspan data-num="k.arac"></tspan> araç</text>
+        <text x="0" y="66" class="d-alt"><tspan data-num="demo.hiz"></tspan> ileti/sn, bayram tepesi</text>
+        <g class="d-tirlar"></g>
+        <line class="d-hat" x1="270" y1="170" x2="1130" y2="170"/>
+        <g class="d-yigin"></g>
+        <text x="290" y="372" class="d-yigin-et" id="d-yigin-et"></text>
+        <g class="d-bolumler"></g>
+        <g class="d-parca"></g>
+        <g class="d-kutu d-araci" id="d-araci"><rect x="560" y="110" width="240" height="120" rx="12"/><text x="680" y="160" text-anchor="middle" class="d-kutu-ad">MQTT aracısı</text><text x="680" y="198" text-anchor="middle" class="d-kutu-alt">mTLS + ACL</text></g>
+        <text x="680" y="92" text-anchor="middle" class="d-kesik-et">durduruldu</text>
+        <g class="d-kutu"><rect x="890" y="130" width="160" height="80" rx="12"/><text x="970" y="179" text-anchor="middle" class="d-kutu-ad">Köprü</text></g>
+        <g class="d-kafka"><rect x="1130" y="0" width="440" height="400" rx="14"/><text x="1150" y="44" class="d-kutu-ad">Kafka · <tspan data-num="demo.bolum"></tspan> bölüm</text></g>
+      </svg>
+      <div class="d-sayac">
+        <div><p class="t-label">Araçların gönderdiği</p><p class="d-n t-num" id="d-gonderilen" data-num="demo.p2.gonderilen"></p></div>
+        <div><p class="t-label">Kafka’ya ulaşan</p><p class="d-n t-num" id="d-alinan" data-num="demo.p2.alinan"></p></div>
+        <div><p class="t-label">Araçta bekleyen</p><p class="d-n t-num" id="d-yolda" data-num="demo.p2.yolda"></p></div>
+        <div class="d-kayip"><p class="t-label">Kayıp</p><p class="d-n t-num" id="d-kayip" data-num="demo.p2.kayip"></p></div>
       </div>
-      <div>
-        <p class="t-label">Kafka'nın <span data-num="demo.bolum"></span> bölümüne dağılım</p>
-        <div class="d-bolum" id="d-bolum"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-        <p class="t-small d-alt-not">p99 gecikme <span id="d-p99"><span class="t-num">10</span> ms</span> · <span class="t-num" id="d-hiz" data-num="demo.hiz"></span> ileti/sn</p>
+    </div>
+    <p class="d-mesaj" data-step="0-0">Akış normal: iletiler aracıdan köprüyle Kafka’nın <span class="t-num" data-num="demo.bolum"></span> bölümüne dağılıyor</p>
+    <p class="d-mesaj kotu" data-step="1-1">Aracıyı durdurduk: araçlar ağa ulaşamıyor, iletiler araçta birikiyor</p>
+    <p class="d-mesaj iyi" data-step="2-2">Bağlantı geri geldi: birikim <span class="t-num" data-num="demo.bosalma"></span> saniyede Kafka’ya aktı, kayıp <span class="t-num" data-num="demo.p2.kayip"></span></p>
+    <i class="d-tik" data-motion="demo-sahne" data-adim="0"></i>
+    <i class="d-tik" data-step="1-1" data-motion="demo-sahne" data-adim="1"></i>
+    <i class="d-tik" data-step="2-2" data-motion="demo-sahne" data-adim="2"></i>
+    <i class="d-tik" data-step="3" data-motion="demo-sahne" data-adim="3"></i>
+
+    <div class="d-kars" data-step="3">
+      <div class="d-kart">
+        <p class="d-kart-ad" data-raw>1. koşu · varsayılan ayar</p>
+        <p class="d-kart-alt">Aracının köprü için tuttuğu kuyruk: <span class="t-num" data-num="demo.sinir"></span> ileti</p>
+        <svg class="d-grafik" id="d-grafik1" viewBox="0 0 740 230" data-raw aria-label="1. koşu: Kafka'ya ulaşmamış ileti, zamana göre"></svg>
+        <p class="d-sonuc kotu"><span class="t-num" data-num="demo.p1.kayip"></span> <small>ileti kayıp</small></p>
+        <p class="d-kart-not">Bağlantı gelince kuyruk taştı. Aracı günlüğü: <i>Outgoing messages are being dropped</i></p>
+      </div>
+      <div class="d-kart">
+        <p class="d-kart-ad" data-raw>2. koşu · kuyruk büyütüldü</p>
+        <p class="d-kart-alt">Aracının köprü için tuttuğu kuyruk: <span class="t-num" data-num="demo.yeni_sinir"></span> ileti</p>
+        <svg class="d-grafik" id="d-grafik2" viewBox="0 0 740 230" data-raw aria-label="2. koşu: Kafka'ya ulaşmamış ileti, zamana göre"></svg>
+        <p class="d-sonuc iyi"><span class="t-num" data-num="demo.p2.kayip"></span> <small>ileti kayıp</small></p>
+        <p class="d-kart-not">Aynı <span class="t-num" data-num="demo.kesinti"></span> saniyelik kesinti; birikimin tamamı Kafka’ya ulaştı.</p>
       </div>
     </div>
-    <p class="d-mesaj" data-step="1-1">Aracıyı durdurdum: araçlar ağa ulaşamıyor</p>
-    <p class="d-mesaj iyi" data-step="2-2">Bağlantı geri geldi: tampon boşalıyor</p>
-    <p class="t-body d-sonuc" data-step="3">İlk provada <span class="t-num" data-num="demo.p1.kayip"></span> ileti kaybettik: aracının <span class="t-num" data-num="demo.sinir"></span> iletilik kuyruğu taştı. Sınırı büyüttük, kayıp <span class="t-num" data-motion="pen-mark" data-num="demo.p2.kayip"></span>.</p>
-    <aside class="notes">Burada sınadığımız soru: Bağlantı koparsa ileti kaybolur mu? Alım katmanının dayanıklılığı, ölçerek. Bu, Docker'da yaptığımız gerçek bir koşunun kaydı: bin yüz araç bayram hızında, saniyede <b>440 ileti</b> yolluyor; MQTT'den Kafka'nın on iki bölümüne akıyor. Tuşa basınca kayıtta MQTT aracısını durdurduğumuz ana geçiyoruz: araçlar ağa ulaşamıyor, iletiler araçta birikiyor, kırmızı sayı bu. Tekrar basınca bağlantı geri geliyor, biriken altı bin ileti yaklaşık bir saniyede Kafka'ya akıyor. Son tuş: ilk provada <b>3.820 ileti kaybettik</b>; aracının varsayılan bin iletilik kuyruğu taştı. Sınırı on beş dakikalık kesintiye göre büyüttük, kayıp sıfır. Bu, ölçmeden bulamayacağımız bir hataydı.</aside>
+    <p class="d-ders" data-step="4">Ölçmeden bulamayacağımız bir hataydı: her iletinin sıra numarasını <span data-motion="pen-mark" data-mark="underline" data-delay=".5">sayarak bulduk</span>.</p>
+    <p class="src" data-raw>Kayıt: canli_demo, 10 Kasım. Tek makine, tek aracı; kesinti docker pause ile. Sayaçlar kayıttan, akış noktaları temsilî.</p>
+    <aside class="notes">Bu, 10 Kasım'da Docker'da yaptığımız <b>gerçek bir koşunun kaydı</b>; sınıfta canlı çalıştırmıyorum ama ekrandaki her sayı o koşudan. Bin yüz araç bayram tepesinde saniyede 440 ileti yolluyor: önce MQTT aracısına, mTLS ve erişim listesiyle; köprü iletileri Kafka'nın on iki bölümüne taşıyor, sağdaki çubuklar bölümlere düşen ileti. Her iletinin bir sıra numarası var; alttaki sayaçlar gönderileni, ulaşanı, bekleyeni ve kaybı sayıyor. Tuş: şimdi aracıyı durduruyoruz, docker pause ile; ağ kesintisi gibi. Araçlar aracıya ulaşamıyor, iletiler <b>araçta birikiyor</b>: kırmızı yığın. Kesinti 15 saniye sürdü, kayıt burada iki kat hızlı. Tuş: bağlantı geri geliyor; biriken altı binden fazla ileti yaklaşık bir saniyede Kafka'ya akıyor, bunu yarı hızda gösteriyorum. Kayıp sıfır. Tuş: ama bu <b>ikinci koşu</b>. İlk koşuda aynı kesintide <b>3.820 ileti kaybettik</b>: aracının köprü için tuttuğu kuyruk varsayılan olarak bin ileti; bağlantı gelince biriken akın onu taşırdı. Soldaki eğri bağlantıdan sonra sıfıra dönmüyor; o iletiler hiç gelmedi. Kuyruğu beş yüz bine çıkardık, on beş dakikalık kesintiye yetecek kadar; aynı kesinti, kayıp sıfır. Tuş: asıl ders: kayıp kendini göstermedi; <b>her iletinin sıra numarasını sayarak bulduk</b>. Ölçmeseydik varsayılan ayarla üretime çıkacaktık. Şimdi sözü Zeynep'e bırakıyorum.</aside>
   </section>
 
   <section class="slide night" data-title="Bölüm: Zeynep" data-duration="20" data-transition="iris">
