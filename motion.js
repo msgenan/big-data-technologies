@@ -31,7 +31,8 @@
   const drivers = new Set();
   M.beginRun = () => (run = { anims: [] });
   M.currentRun = () => run;
-  M.finishRun = (r = run) => r.anims.forEach((a) => { try { if (a.effect && a.effect.getTiming().duration !== Infinity) a.finish(); else a.cancel(); } catch (_) { a.cancel(); } });
+  // cancelled animations (finished step exits) stay cancelled: finish() would revive their fill and hide the element again
+  M.finishRun = (r = run) => r.anims.forEach((a) => { if (a.playState === 'idle') return; try { if (a.effect && a.effect.getTiming().duration !== Infinity) a.finish(); else a.cancel(); } catch (_) { a.cancel(); } });
   M.cancelRun = (r = run) => r.anims.forEach((a) => a.cancel());
   M.runEnd = (r = run) => r.anims.reduce((m, a) => (a._ambient ? m : Math.max(m, a.effect.getComputedTiming().endTime || 0)), 0);
   M.settled = (r = run) => Promise.all(r.anims.filter((a) => !a._ambient).map((a) => a.finished.catch(() => {})));
