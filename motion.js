@@ -417,13 +417,33 @@
     const fin = () => { done(); a.cancel(); };
     a.finished.then(fin, fin);
   };
+  /* still-drift: a slow camera move on a full-bleed still (Ken Burns), for AI stills that should feel filmed.
+     <img class="cover" src="media/x.png" data-motion="still-drift" data-zoom="1.02 1.16" data-from="40% 30%" data-to="30% 22%" data-dur="14">
+     data-zoom: start and end scale (one value = from 1); data-from/-to: the point closed in on (transform-origin, % of
+     the image); data-dur: seconds (default: the slide's data-duration + 10). Scale never drops below 1, so the frame is
+     never uncovered; the final state is plain CSS (whole image), which static, PDF, PPTX and reduced motion show.
+     Driven by M.camera below, not by a step run. */
+  M.define('still-drift', { build: (el) => el.classList.add('still-drift') });
+  // near-constant speed from the first frame (the slide fade hides the start); E.cam starts from rest and reads as a jolt
+  const DRIFT = 'cubic-bezier(.25,.3,.5,1)';
+
   /* camera push: data-camera="push" on a slide, a slow scale over the slide's planned time */
   /* Kept outside the step runs, so a step change never finishes it early; Deck.seek drives it from slide time. */
   M.camera = function (slide) {
     if (slide._cam) { slide._cam.cancel(); slide._cam = null; }
-    if (!M.active() || slide.dataset.camera !== 'push') return;
+    if (!M.active()) return;
     const sec = parseFloat(slide.dataset.duration || '30') + 10;
-    slide._cam = slide.animate([{ scale: '1' }, { scale: '1.025' }], { duration: sec * 1000, easing: E.cam, fill: 'both' });
+    const still = slide.dataset.camera !== 'push' && slide.querySelector('[data-motion="still-drift"]');
+    if (still) {
+      const z = (still.dataset.zoom || '1.06').trim().split(/\s+/).map(parseFloat);
+      const [z0, z1] = z.length > 1 ? z : [1, z[0]];
+      const from = still.dataset.from || '50% 50%', to = still.dataset.to || from;
+      slide._cam = still.animate(
+        [{ scale: String(Math.max(1, z0)), transformOrigin: from }, { scale: String(Math.max(1, z1)), transformOrigin: to }],
+        { duration: (still.dataset.dur ? parseFloat(still.dataset.dur) : sec) * 1000, easing: DRIFT, fill: 'both' });
+    } else if (slide.dataset.camera === 'push') {
+      slide._cam = slide.animate([{ scale: '1' }, { scale: '1.025' }], { duration: sec * 1000, easing: E.cam, fill: 'both' });
+    } else return;
     if (M.mode === 'render') slide._cam.pause();
   };
   M.stopCamera = (slide) => { if (slide && slide._cam) { slide._cam.cancel(); slide._cam = null; } };
