@@ -147,14 +147,23 @@
     const a = olay(oz, 'kesildi'), b = olay(oz, 'baglandi');
     mk('rect', { x: GX(a), y: 14, width: GX(b) - GX(a), height: 182, class: 'kesinti' }, el);
     mk('text', { x: (GX(a) + GX(b)) / 2, y: 6, 'text-anchor': 'middle', class: 'kesinti-et' }, el).textContent = 'kesinti';
-    return { alan: mk('path', { class: 'alan' }, el), cizgi: mk('path', { class: 'cizgi' }, el) };
+    mk('text', { x: 0, y: 6, class: 'eksen-et' }, el).textContent = 'Kafka’ya ulaşmamış ileti';
+    const g = { alan: mk('path', { class: 'alan' }, el), cizgi: mk('path', { class: 'cizgi' }, el) };
+    if (!iyi) {   // 1. koşu: bağlantıdan sonraki düz kısım kayıptır
+      const duz = S1.filter((r) => r[0] > b + 2), y = duz.reduce((s, r) => s + r[1], 0) / duz.length;
+      g.et = mk('text', { x: GX((b + 2 + XMAX) / 2), y: GY(y) - 14, 'text-anchor': 'middle', class: 'kayip-et' }, el);
+      g.et.textContent = 'kayıp: ' + D.format('demo.p1.kayip');
+      g.etT = b + 2;
+    }
+    return g;
   }
   const G1 = grafikKur($('d-grafik1'), K.prova1, false), G2 = grafikKur($('d-grafik2'), K.duzeltilmis, true);
   function egri(g, S, p) {
     const n = S.filter((r) => r[0] <= XMAX * p);
-    if (n.length < 2) { g.alan.setAttribute('d', ''); g.cizgi.setAttribute('d', ''); return; }
+    if (n.length < 2) { g.alan.setAttribute('d', ''); g.cizgi.setAttribute('d', ''); if (g.et) g.et.style.opacity = 0; return; }
     const d = n.map((r, i) => (i ? 'L' : 'M') + GX(r[0]).toFixed(1) + ',' + GY(r[1]).toFixed(1)).join('');
     g.cizgi.setAttribute('d', d);
+    if (g.et) g.et.style.opacity = XMAX * p >= g.etT + 8 ? 1 : 0;
     g.alan.setAttribute('d', d + `L${GX(n[n.length - 1][0]).toFixed(1)},${GY(0)}L${GX(n[0][0]).toFixed(1)},${GY(0)}Z`);
   }
   const kars = (p) => { egri(G1, S1, p); egri(G2, S2, p); };

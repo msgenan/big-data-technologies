@@ -128,6 +128,8 @@
 .d-grafik .kesinti { fill: rgba(255,138,115,.12); }
 .d-grafik .kesinti-et, .d-grafik .tik { font: 400 20px var(--f-body); fill: var(--ink-2); }
 .d-grafik .kesinti-et { fill: var(--bad); font-weight: 700; font-size: 22px; }
+.d-grafik .eksen-et { font: 700 20px var(--f-body); fill: var(--ink-2); }
+.d-grafik .kayip-et { font: 700 24px var(--f-body); fill: var(--bad); }
 .d-grafik .alan { fill: rgba(255,138,115,.28); }
 .d-grafik .cizgi { fill: none; stroke: var(--bad); stroke-width: 4; stroke-linejoin: round; }
 .d-grafik.iyi .alan { fill: rgba(92,199,149,.22); }
