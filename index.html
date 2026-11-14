@@ -72,7 +72,7 @@
         <p>Biz ilk üç katmanı ayrıntılı getirdik: <b>kaynak, alım, depolama</b>.</p></div>
     </div>
     <p class="src" data-raw>Kaynak: Vize ödevi yönergesi, Vaka A ve 5.3 Ara denetim.</p>
-    <aside class="notes">Vakamız TazeRota: süt ürünü, atıştırmalık ve içecek üreten, Türkiye geneline dağıtan bir hızlı tüketim şirketi. Verisi dokuz ayrı kaynakta: fabrikadaki sensörler, soğutuculu araçlar, temsilcilerin el terminalleri, zincir marketlerin satış dosyaları... Kısıtlar ağır: ham veri üç yıl saklanacak, kişisel veri var, sezonda hacim dört katına çıkıyor. Ara denetimde yönerge <b>mimari taslak ve hacim hesabı</b> istiyor; biz ilk üç katmanı, yani kaynak, alım ve depolamayı ayrıntılı getirdik.</aside>
+    <aside class="notes">Vakamız TazeRota: süt ürünü, atıştırmalık ve içecek üreten, Türkiye geneline soğuk zincirle dağıtan bir hızlı tüketim şirketi. Ölçeği solda: altı fabrika, bin yüz soğutuculu araç, iki bin dört yüz temsilci, yüz seksen beş bin satış noktası. Verisi <b>dokuz ayrı kaynakta</b>: fabrika sensörleri, araçlar, temsilcilerin el terminalleri, zincir marketlerin satış dosyaları... Kısıtlar ağır: ham veri üç yıl saklanacak, kişisel veri var, sezonda hacim dört katına çıkıyor, her zincirin ürün kodu farklı. Yönerge bu denetimde <b>mimari taslak ve hacim hesabı</b> istiyor; biz ilk üç katmanı, kaynak, alım ve depolamayı ayrıntılı getirdik.</aside>
   </section>
 
   <section class="slide" data-title="İş soruları" data-duration="40">
@@ -90,7 +90,7 @@
     </div>
     <p class="t-body alt-not" data-step="1">Tek bir işleme hızı hepsine yetmez: <b>akış</b> da <b>toplu iş</b> de gerekiyor.</p>
     <p class="src">Kaynak: vaka metni; kabul ölçütleri Veri Mimarı raporu, G1.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: G1: her iş sorununu veri gereksinimine çevir: kaynak, gecikme, doğruluk, kullanıcı. TazeRota'nın beş iş sorusu var ve her birinin beklediği hız çok farklı. Soğuk zincir alarmı otuz saniye içinde gelmeli; raf boşluğu on beş dakikada; geri çağırmada iki saat içinde hangi lotun nereye gittiğini bilmeliyiz. Talep tahmini her gece sabah dörde kadar hazır olmalı, promosyon etkisi haftalık. Bu yüzden <b>tek bir işleme hızı yetmiyor</b>: hem akış hem toplu iş gerekiyor.</aside>
+    <aside class="notes">Yönerge her iş sorununu veri gereksinimine çevirmemizi istiyor. TazeRota'nın beş iş sorusu var ve her birinin beklediği hız çok farklı. Soğuk zincir alarmı otuz saniye içinde gelmeli; raf boşluğu on beş dakikada; geri çağırmada iki saat içinde hangi lotun nereye gittiğini bilmeliyiz. Talep tahmini her gece sabah dörde kadar hazır, promosyon etkisi haftalık. Tuş: bu yüzden <b>tek bir işleme hızı yetmiyor</b>, hem akış hem toplu iş gerekiyor.</aside>
   </section>
 
   <section class="slide" data-title="Kaynaklar" data-duration="55">
@@ -111,10 +111,10 @@
       <div class="bv"><b>Değer</b><span>beş iş sorusu: tahminden geri çağırmaya</span></div>
     </div>
     <p class="src">Kaynak: vaka metni; eşleşme Veri Mimarı raporu, G1. Yapı: yapılandırılmış, yarı yapılandırılmış, yapısız.</p>
-    <aside class="notes">Yönerge her iş sorusunun hangi kaynağa ihtiyaç duyduğunu ve işe yaramayan kaynağa ne yapacağımızı soruyor. Matris bunu gösteriyor: <b>sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmiyor</b>, bu yüzden toplamıyoruz; ne depolama maliyeti ne KVKK yükü. Alttaki beş V her boyutun TazeRota'daki karşılığı: hacmi fotoğraf ve sensör getiriyor, hızı sensör ve araç, çeşitliliği altı farklı biçim; doğruluk sorunu sensör hatası ve düzeltilen dosyalar; değer de beş iş sorusunun kendisi.</aside>
+    <aside class="notes">Yönerge her iş sorusunun hangi kaynağa ihtiyaç duyduğunu ve işe yaramayan kaynağa ne yapacağımızı soruyor. Tuş: matris bunu gösteriyor. <b>Sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmiyor</b>, bu yüzden toplamıyoruz; ne depolama maliyeti ne KVKK yükü. Tuş: alttaki beş V, her boyutun TazeRota'daki karşılığı: hacmi fotoğraf ve sensör getiriyor, hızı sensör ve araç, çeşitliliği altı farklı biçim; doğruluk sorunu sensör hatası ve düzeltilen dosyalar; değer de beş iş sorusunun kendisi.</aside>
   </section>
 
-  <section class="slide" id="hacim" data-title="Hacim" data-duration="75" data-transition="iris" data-export="image">
+  <section class="slide" id="hacim" data-title="Hacim" data-duration="70" data-transition="iris" data-export="image">
     <p class="istenen" data-raw><b>İstenen</b> G2: her kaynak için saklama sonu hacmi; 4 kat tepe, çoğaltma ve sıkıştırmayla gerçek disk</p>
     <div class="sekme">Sefa Ünal · Veri Mimarı</div>
     <p class="t-kicker" data-motion="rise">Katman 1 · Kaynaklar ve hacim</p>
@@ -136,10 +136,10 @@
       </div>
     </div>
     <p class="src">Kaynak: Veri Mimarı raporu (G2). Mevsim çarpanı <span data-num="hacim.mevsim"></span>, 3 yıllık büyüme <span data-num="hacim.buyume"></span>, TB.</p>
-    <aside class="notes">Yönerge her kaynağın üç yıllık hacmini, dört kat sezon tepesini, çoğaltma ve sıkıştırmayı istiyor. Üç yılda <b>578 TB ham veri</b>; bunun yüzde altmışı raf fotoğrafı, çünkü fotoğraf zaten sıkıştırılmış, küçülmüyor. Üç kopya tutarsak 1.371 TB disk gerekir; 8+2 silme kodlamasıyla 571 TB, yani aynı veri 800 TB daha az diskle. Son tuşta kaydırıcılar var: büyüme ya da sezon katı değişirse bütün sayılar aynı formülle yeniden hesaplanıyor. Hoca "büyüme yüzde otuz olsa?" diye sorarsa burada gösterebiliriz.</aside>
+    <aside class="notes">Yönerge her kaynağın üç yıllık hacmini, dört kat sezon tepesini, çoğaltma ve sıkıştırmayı istiyor. Üç yılda <b>578 TB ham veri</b>; bunun yüzde altmışı raf fotoğrafı, çünkü fotoğraf zaten sıkıştırılmış, küçülmüyor. Tuş: üç kopya tutarsak 1.371 TB disk gerekir; 8+2 silme kodlamasıyla 571 TB. Tuş: yani aynı veri 800 TB daha az diskle. Tuş: son adımda kaydırıcılar var; büyüme ya da sezon katı değişirse bütün sayılar aynı formülle yeniden hesaplanıyor. Hoca "büyüme yüzde otuz olsa?" diye sorarsa burada gösterebiliriz.</aside>
   </section>
 
-  <section class="slide" id="sema" data-title="Mimari şema" data-duration="90" data-transition="iris" data-export="image">
+  <section class="slide" id="sema" data-title="Mimari şema" data-duration="80" data-transition="iris" data-export="image">
     <p class="istenen" data-raw><b>İstenen</b> G3: Lambda, Kappa, lakehouse arasından seç, seçmediklerini gerekçelendir; tek sayfalık şema</p>
     <div class="sekme">Sefa Ünal · Veri Mimarı</div>
     <p class="t-kicker" data-motion="rise">Mimari · ortak lakehouse, akış ve toplu iş</p>
@@ -234,7 +234,7 @@
     <p class="sema-yol" data-step="4-4"><b>Analitik:</b> Bronze → Silver → Gold → Trino, tahmin her gece, promosyon haftalık</p>
     <p class="secmedik sabit"><b>Seçmediğimiz:</b> saf Lambda, kurallar iki kez yazılır; Kappa, <span class="t-num" data-num="hacim.ham"></span> TB'ı Kafka'dan yeniden oynatmak pratik değil.</p>
     <p class="src">İşleme ve sunum soluk: bu denetimin kapsamı dışında. Noktaların yoğunluğu ileti hızının kareköküyle orantılı.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: G3: Lambda, Kappa, lakehouse arasından seç, seçmediklerini gerekçelendir; tek sayfalık şema. Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Oklardaki noktalar gerçek ileti hızlarıyla akıyor. Bayramda hız dört katına çıkıyor: telemetri saniyede 110 iletiden 440'a; Kafka bu yüzden tepe hıza göre boyutlandırıldı. Şimdi üç yolu tek tek gösteriyorum: <b>operasyonel</b> yol alarmı saniyeler içinde verir, <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar, <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır. Soluk kutular finalin konusu: Trino analistin keşif sorguları için, ClickHouse panonun hızı için; ClickHouse'a yalnız Gold'daki özet tablolar gider, kişisel veri ve konum gitmez, gece işinden sonra yenilenir. Pano Superset, kendi ortamımızda çalışır.</aside>
+    <aside class="notes">Yönerge Lambda, Kappa ve lakehouse arasından seçmemizi ve seçmediklerimizi gerekçelendirmemizi istiyor. Mimarimiz tek bir Kafka omurgası üzerinde ortak bir lakehouse. Saf Lambda'yı seçmedik çünkü iş kurallarını iki kez yazdırır; Kappa'yı seçmedik çünkü üç yıllık 578 TB'ı Kafka'dan yeniden oynatmak pratik değil. Oklardaki noktalar ileti hızlarıyla orantılı akıyor. Tuş: bayramda hız dört katına çıkıyor, telemetri saniyede 110 iletiden 440'a; Kafka bu yüzden tepe hıza göre boyutlandırıldı. Şimdi üç yolu tek tek gösteriyorum. Tuş: <b>operasyonel</b> yol alarmı saniyeler içinde verir. Tuş: <b>izlenebilirlik</b> yolu lot zincirini Neo4j'de tutar. Tuş: <b>analitik</b> yol ham veriyi Bronze'dan Gold'a olgunlaştırır. Soluk kutular finalin konusu: Trino analistin keşif sorguları için, ClickHouse panonun hızı için; ClickHouse'a yalnız Gold'daki özet tablolar gider, kişisel veri ve konum gitmez, gece işinden sonra yenilenir. Pano Superset, kendi ortamımızda çalışır. Şimdi sözü Sabit'e bırakıyorum.</aside>
   </section>
 
   <section class="slide night foto acilis-s" data-title="Bölüm: Sabit" data-duration="20" data-transition="iris" data-export="image">
@@ -264,7 +264,7 @@
     <aside class="notes">Teşekkürler Sefa. Ben Muhammed Sabit Genan, veri mühendisiyim. Tuş: projede <b>veri alımını ve Kafka tasarımını</b> yaptım, güvenliğin hatta getirdiği yükü Docker'da ölçtüm; toplu ve akış işleme tasarımı ile Spark kanıtı da bende. Tuş: şimdi her kaynağın hangi yoldan geldiğini, Kafka bölüm sayısını nasıl türettiğimizi ve iki kanıtı göstereceğim: güvenlik ölçümü ve kesinti kaydı.</aside>
   </section>
 
-  <section class="slide" data-title="Alım yolları" data-duration="70">
+  <section class="slide" data-title="Alım yolları" data-duration="65">
     <p class="istenen" data-raw><b>İstenen</b> G4: her kaynak için alım yöntemi: dosya aktarımı, değişiklik yakalama, ileti kuyruğu, API</p>
     <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
     <p class="t-kicker" data-motion="rise">Katman 2 · Veri alımı</p>
@@ -284,10 +284,10 @@
     </div>
     <p class="secmedik" data-step="2"><b>Seçmediğimiz:</b> Sqoop, toplu kopyalar ve geri çağırmanın 2 saatine yetişmez; Flume, sunucu günlüğü içindir, bizde öyle bir kaynak yok.</p>
     <p class="src">Platformlar: MQTT aracısı, Kafka + Kafka Connect, NiFi. Kaynak: G4 veri alımı.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: G4: her kaynak için alım yöntemi: dosya aktarımı, değişiklik yakalama, ileti kuyruğu, API. Dokuz kaynağın her biri geliş şekline göre <b>dört yoldan</b> birine giriyor. Araç ve sensör sürekli akıyor: ileti kuyruğu. ERP canlı veritabanı; onu yormadan değişiklikleri Debezium okuyor. POS dosyaları on iki ayrı biçimde geliyor, NiFi her dosyanın izini tutuyor. Fotoğraf 2,5 MB, kuyruğa girmiyor; doğrudan nesne depolamaya gidiyor, Kafka'ya yalnız bilgisi giriyor. Sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmediği için toplanmıyor.</aside>
+    <aside class="notes">Yönerge her kaynak için alım yöntemini soruyor: dosya aktarımı, değişiklik yakalama, ileti kuyruğu ya da API. Tuş: dokuz kaynağın her biri geliş şekline göre <b>dört yoldan</b> birine giriyor. Araç ve sensör sürekli akıyor: ileti kuyruğu. ERP canlı veritabanı; onu yormadan değişiklikleri Debezium okuyor. POS dosyaları on iki zincirden ayrı biçimlerde geliyor, NiFi her dosyanın izini tutuyor. Fotoğraf 2,5 MB, kuyruğa girmiyor; doğrudan nesne depolamaya gidiyor, Kafka'ya yalnız bilgisi giriyor. Sosyal medya ve çağrı merkezi hiçbir soruya hizmet etmediği için toplanmıyor. Tuş: seçmediklerimiz: Sqoop toplu kopyaladığı için geri çağırmanın iki saatine yetişmez, Flume sunucu günlüğü içindir.</aside>
   </section>
 
-  <section class="slide" id="kafka" data-title="Kafka bölüm sayısı" data-export="image" data-duration="70">
+  <section class="slide" id="kafka" data-title="Kafka bölüm sayısı" data-export="image" data-duration="65">
     <p class="istenen" data-raw><b>İstenen</b> G4: konu, bölüm sayısı, anahtar, saklama; bölüm sayısını tepe hızdan türet</p>
     <div class="sekme">Muhammed Sabit Genan · Veri Mühendisi</div>
     <p class="t-kicker" data-motion="rise">Katman 2 · Kafka konuları</p>
@@ -324,7 +324,7 @@
       </div>
     </div>
     <p class="src">Kaynak: G4 veri alımı, Bölüm 3. Görev kapasitesi varsayım, ölçülmedi.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: G4: konu, bölüm sayısı, anahtar, saklama; bölüm sayısını tepe hızdan türet. Bölüm sayısını soğuk zincir konusu üzerinden türetiyorum. Bin yüz araç on saniyede bir yolluyor: saniyede yüz on ileti. Bayramda dört katı, üç yıl sonra yedi yüz altmış. Asıl belirleyici kesinti: Flink on dakika durursa yaklaşık <b>456 bin ileti</b> birikir; bunu iki dakikada eritmek için on görev gerekir. On ikiyi seçtik çünkü 2, 3, 4 ve 6'ya bölünür; sonradan bölüm artırmak aracın ölçüm sırasını bozardı. Sağda bunu canlı görüyorsunuz: on iki şerit, Flink durunca kırmızı birikim, on görev dönünce eriyor; sahne hızlandırılmış. Son tuşta diğer konular, aynı kuralla.</aside>
+    <aside class="notes">Yönerge bölüm sayısını tepe hızdan türetmemizi istiyor; bunu soğuk zincir konusu üzerinden yaptım. Tuş: bin yüz araç on saniyede bir yolluyor, saniyede yüz on ileti. Tuş: bayramda dört katı, 440. Tuş: üç yıl büyümeyle 760. Tuş: asıl belirleyici kesinti: Flink on dakika durursa yaklaşık <b>456 bin ileti</b> birikir; bunu iki dakikada eritmek için saniyede 4.560 ileti gerekir. Tuş: görev başına 500 varsayarsak on görev; <b>on ikiyi</b> seçtik çünkü 2, 3, 4 ve 6'ya bölünür, sonradan bölüm artırmak aracın ölçüm sırasını bozardı. Sağdaki sahne bunu gösteriyor: on iki şerit, Flink durunca kırmızı birikim, görevler dönünce eriyor; sahne hızlandırılmış. Tuş: diğer konular aynı kuralla.</aside>
   </section>
 
   <section class="slide" data-title="Kanıt: güvenlik bedeli" data-duration="60">
@@ -345,7 +345,7 @@
       </div>
     </div>
     <p class="src" data-raw>Kafka 3.9.1 ve Mosquitto 2.0.20, Docker. Saniyede 440 (3. yıl 760) ileti, 250 bayt, her ayar 2 dk × 2 tekrar. Tek makine; MQTT → Kafka köprüsü ölçülmedi.</p>
-    <aside class="notes">Veri Mühendisi olarak denetim görevim şuydu: güvenlik önlemleri hattı yavaşlatıyor mu? Docker'da şifresiz bağlantı ile mTLS artı erişim listesini karşılaştırdım. Kafka'da en yavaş yüzde birlik iletiler <b>0,4 ms</b> gecikti, MQTT'de fark ölçülemedi. Altı yüz bin ileti gönderdim, hepsi geldi. Yetkisiz sertifikalı cihaz yayın yapamadı. Bedeli yeniden bağlanmada: birkaç milisaniye.</aside>
+    <aside class="notes">Veri Mühendisi olarak denetim görevim şuydu: güvenlik önlemleri hattı yavaşlatıyor mu? Docker'da şifresiz bağlantı ile mTLS artı erişim listesini karşılaştırdım. Kafka'da en yavaş yüzde birlik iletiler <b>0,4 ms</b> daha geç geldi, MQTT'de fark ölçülemedi. Altı yüz bin ileti gönderdim, hepsi geldi. Tuş: yetkisiz sertifikalı cihaz yayın yapamadı; bedeli yeniden bağlanmada, birkaç milisaniye. Ama bu ölçüm tek bileşenleri sınadı; asıl soru, bağlantı koparsa ne olduğu. Onu da kaydettim.</aside>
   </section>
 
   <section class="slide night" id="demo" data-title="Demo kaydı: kesinti ve kayıp" data-duration="80" data-transition="iris" data-export="image">
@@ -469,7 +469,7 @@
       </div>
     </div>
     <p class="src">Kaynak: Veri Mimarı raporu, G5. MinIO nesne depolama, 8+2 silme kodlaması; Iceberg tablo biçimi.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: G5: ham, temiz, iş katmanları; biçim ve bölümleme; küçük dosya; sıcak, ılık, soğuk. Depolamada üç katman var. <b>Bronze</b> ham ve değişmez: kaynaktan geldiği gibi, geri dönüp yeniden işleyebilmek için. Silver temizlenmiş ve ürün kodları eşleşmiş veri, Gold iş sorularına hazır tablolar. Veri yaşlandıkça daha ucuz katmana iner; ham veri üç yıl, mali kayıtlar on yıl. Akış verisinin bıraktığı küçük dosyaları her gece birleştiriyoruz; kartların sağında bunu görüyorsunuz: küçük dosyalar Bronze'a düşüyor, gece iki büyük dosyada birleşiyor, temizlenip Silver'a çıkıyor, hatalılar karantinaya gidiyor, Gold'da iş tablosu oluşuyor. Eski Hadoop kümesini ve veri ambarını hemen kapatmıyoruz: önce yeni sistemle <b>paralel çalışıyor</b>, veriler taşınıp sonuçlar karşılaştırılıyor, sonra salt okunur kalıyor, iş birimleri onaylayınca kapanıyor.</aside>
+    <aside class="notes">Yönerge ham, temiz ve iş katmanlarını, biçimi, bölümlemeyi, küçük dosya sorununu ve sıcak-soğuk ayrımını soruyor. Depolamada üç katman var. <b>Bronze</b> ham ve değişmez: kaynaktan geldiği gibi, geri dönüp yeniden işleyebilmek için. Silver temizlenmiş ve ürün kodları eşleşmiş veri, Gold iş sorularına hazır tablolar. Kartların sağında akışı görüyorsunuz: küçük dosyalar Bronze'a düşüyor, gece büyük dosyalarda birleşiyor, temizlenip Silver'a çıkıyor, hatalılar karantinaya gidiyor, Gold'da iş tablosu oluşuyor. Tuş: veri yaşlandıkça daha ucuz katmana iner: ilk otuz gün sıcak, yüz seksen güne kadar ılık, üç yüz altmış güne kadar soğuk, sonra üç yıla kadar arşiv; mali kayıtlar on yıl. Tuş: akış verisinin bıraktığı küçük dosyaları her gece 256 MB'lık dosyalarda birleştiriyoruz. Tuş: eski Hadoop kümesini ve veri ambarını hemen kapatmıyoruz: önce <b>paralel çalışıyor</b>, veriler taşınıp sonuçlar karşılaştırılıyor, sonra salt okunur kalıyor, iş birimleri onaylayınca kapanıyor.</aside>
   </section>
 
   <section class="slide" data-title="Hızlı depolar" data-duration="60">
@@ -491,7 +491,7 @@
     </div>
     <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> Cassandra; her soru için ayrı tablo ister, palet bölününce zincir elle kurulur. Yazma hızına gerek yok, hedef 2 saat.</p>
     <p class="src">Kaynak: Veri Mimarı raporu (KA-7), Sefa 10 Kasım, ekip onayı 12 Kasım.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: G5 ve KA-7: en az bir iş sorunu için NoSQL; tür, anahtar, CAP; lot zinciri modeli. İki soru lakehouse'un gece işini bekleyemez. Soğuk zincir alarmı için her aracın son durumunu <b>Redis</b>'te tutuyoruz; kaybolursa Kafka'dan yeniden kurulur, bu yüzden erişilebilirliği seçtik. Geri çağırmada lot, palet, sevkiyat ve satış noktası zincirini <b>Neo4j</b>'de çizge olarak tutuyoruz; burada yanlış cevap vermektense beklemeyi seçtik. Palet bölünür ya da yeniden yüklenirse çizgeye yalnız yeni bir bağlantı eklenir. Çizgede yalnız lot, palet, sevkiyat ve satış noktası kimlikleri var; bakkal sahibinin adı, telefonu girmez. Bedeli: kümelenme ve yedekli çalışma ücretli Enterprise sürümünde (G12 maliyetinde); yazma ölçeklenmesi sınırlı ama lot ve palet olayları az. Cassandra'yı seçmedik: her soru için ayrı tablo ister, zinciri yazarken elle kurmak gerekir; hızlı yazma üstünlüğü 2 saatlik geri çağırma hedefi için gereksiz.</aside>
+    <aside class="notes">Yönerge en az bir iş sorunu için NoSQL istiyor: türü, anahtarı, CAP tercihi ve lot zinciri modeli. İki soru lakehouse'un gece işini bekleyemez. Tuş: soğuk zincir alarmı için her aracın son durumunu <b>Redis</b>'te tutuyoruz; kaybolursa Kafka'dan yeniden kurulur, bu yüzden erişilebilirliği seçtik. Tuş: geri çağırmada lot, palet, sevkiyat ve satış noktası zincirini <b>Neo4j</b>'de çizge olarak tutuyoruz; burada yanlış cevap vermektense beklemeyi seçtik. Palet bölünür ya da yeniden yüklenirse çizgeye yalnız yeni bir bağlantı eklenir. Çizgede yalnız kimlikler var; bakkal sahibinin adı, telefonu girmez. Bedeli: kümelenme ve yedekli çalışma ücretli Enterprise sürümünde (G12 maliyetinde); yazma ölçeklenmesi sınırlı ama lot ve palet olayları az. Tuş: Cassandra'yı seçmedik: her soru için ayrı tablo ister, zinciri yazarken elle kurmak gerekir; hızlı yazma üstünlüğü 2 saatlik geri çağırma hedefi için gereksiz.</aside>
   </section>
 
   <section class="slide" data-title="Ürün kodu eşleştirme" data-duration="55">
@@ -515,7 +515,7 @@
     </div>
     <p class="secmedik akista" data-step="3"><b>Seçmediğimiz:</b> eşleştirmeyi sorgu anında yapmak, raporlar tutarsızlaşır; ham koda dokunmak, hatalı eşleşme geri alınamaz.</p>
     <p class="src">Kaynak: Zeynep G10, KA-1. Eşleştirme tablosu küçük (<span class="t-num" data-num="ka1.tablo"></span> satır), her düğüme kopyalanarak birleştirilir.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: KA-1: zincir kodları hangi katmanda, hangi yöntemle eşleşir; eşleşmeyen satıra ne olur?. On iki zincir kendi ürün kodunu kullanıyor, bizim ana verimizde ise 3.200 SKU var. Eşleştirmeyi ham katmandan temiz katmana geçerken dört adımda yapıyoruz: önce barkod, sonra daha önce onaylanmış eşleşme, sonra benzerlik skoru, en son veri sorumlusunun onayı. <b>Eşleşmeyen satır silinmiyor</b>, karantinaya gidiyor; böylece zincirin toplam satışı hep doğru kalıyor.</aside>
+    <aside class="notes">Yönerge zincir kodlarının hangi katmanda, hangi yöntemle eşleştiğini ve eşleşmeyen satıra ne olduğunu soruyor. On iki zincir kendi ürün kodunu kullanıyor, bizim ana verimizde 3.200 SKU var. Tuş: eşleştirmeyi ham katmandan temiz katmana geçerken dört adımda yapıyoruz: önce barkod, sonra daha önce onaylanmış eşleşme, sonra benzerlik skoru, en son veri sorumlusunun onayı. Tuş: hedefi ciroyla ağırlıklı koyduk: en çok satan 200 SKU'da yüzde 98. <b>Eşleşmeyen satır silinmiyor</b>, karantinaya gidiyor; böylece zincirin toplam satışı hep doğru kalıyor. Tuş: seçmediklerimiz: sorgu anında eşleştirmek raporları tutarsızlaştırır, ham koda dokunmak hatalı eşleşmeyi geri alınamaz yapar.</aside>
   </section>
 
   <section class="slide" id="guvenlik" data-title="Güvenlik ve KVKK" data-duration="70">
@@ -541,7 +541,7 @@
       <p class="t-body">Temsilci konumu her temsilci ve gün için ayrı anahtarla şifrelenir; <b><span class="t-num" data-num="kv.gun"></span> gün sonra anahtar silinir</b>, kayıt 3 yıl kalır ama konum okunamaz.</p>
     </div>
     <p class="src">Kaynak: Zeynep G10 (10.1-10.3), KVKK md. 4, 5, 6, 7, 12. Güvenlik bedeli ölçüldü: Muhammed Sabit Genan, S7.</p>
-    <aside class="notes">Yönerge burada şunu istiyor: Güvenlik ve KVKK: temsilci konumu ve bakkal bilgisi; ilk üç katmandaki önlemler. Güvenliği ayrı bir katman olarak değil, verinin geçtiği her katmanın içine koyduk. Kaynakta sertifikasız cihaz bağlanamıyor, fotoğraftaki yüzler daha alımda, kısıtlı yükleme alanında bulanıklaşıyor; ham katmana yalnız bulanık kopya giriyor, <b>orijinal saklanmıyor</b>. Raf analizi için yüze ihtiyacımız yok, amacı olmayan veriyi tutmuyoruz (md. 4); yüzlü fotoğraf yüz tanımada kullanılırsa biyometrik veriye dönüşür (md. 6). Alımda her servis kendi kimliğiyle ve yalnız kendi konusuna erişiyor. En ilginç kısım <b>kripto-silme</b>: vaka ham veriyi üç yıl istiyor, KVKK ise konumu gereğinden uzun tutmamamızı. Konumu temsilci ve gün başına anahtarla şifreliyoruz; otuz gün sonra anahtarı siliyoruz, kayıt duruyor ama konum artık okunamıyor.</aside>
+    <aside class="notes">Yönerge temsilci konumu ve bakkal bilgisi için ilk üç katmandaki önlemleri soruyor. Güvenliği ayrı bir katman olarak değil, verinin geçtiği her katmanın içine koyduk. Kaynakta sertifikasız cihaz bağlanamıyor; fotoğraftaki yüzler daha alımda, kısıtlı yükleme alanında bulanıklaşıyor; ham katmana yalnız bulanık kopya giriyor, <b>orijinal saklanmıyor</b>. Raf analizi için yüze ihtiyacımız yok, amacı olmayan veriyi tutmuyoruz (md. 4); yüzlü fotoğraf yüz tanımada kullanılırsa biyometrik veriye dönüşür (md. 6). Alımda her servis kendi kimliğiyle ve yalnız kendi konusuna erişiyor; bunun gecikme bedelini Sabit ölçtü. Tuş: en ilginç kısım <b>kripto-silme</b>: vaka ham veriyi üç yıl istiyor, KVKK ise konumu gereğinden uzun tutmamamızı. Konumu temsilci ve gün başına anahtarla şifreliyoruz; otuz gün sonra anahtarı siliyoruz, kayıt duruyor ama konum artık okunamıyor.</aside>
   </section>
 
   <section class="slide night bare foto kapanis" data-title="Kapanış" data-duration="20" data-transition="iris" data-export="image">
