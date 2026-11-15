@@ -41,7 +41,20 @@
     mk('rect', { x: uc[0] + 3, y: uc[1] - 2.4, width: 4.8, height: 4.8, rx: 1, class: 'gorev' }, gGorev);
     seritler.push({ yol, lag, L, w: 0 });
   }
-  if (Deck.mode !== 'live') return;
+  /* Flink görevleri: yolun sonunda k.gorev kadar işaret (adım 4'te durur, 5'te çalışır) */
+  const kutu = document.getElementById('k-flink');
+  if (kutu) for (let i = 0; i < D.val('k.gorev'); i++) { const g = document.createElement('i'); kutu.appendChild(g); }
+  if (Deck.mode !== 'live') {   // statik, PDF, PPTX: şeritlerde donmuş ışıklar (tohumlu, her seferinde aynı)
+    const gK = svg.querySelector('.k-parca');
+    seritler.forEach((s, i) => {
+      for (let j = 0; j < 5; j++) {
+        const u = ((Math.sin((i + 1) * 12.9898 + (j + 1) * 78.233) * 43758.5453) % 1 + 1) % 1;
+        const q = s.yol.getPointAtLength(s.L * (j + u) / 5.4);
+        mk('circle', { cx: q.x.toFixed(1), cy: q.y.toFixed(1), r: 2.9 }, gK);
+      }
+    });
+    return;
+  }
 
   /* ------------------------------------------------ akış (yalnız canlı) */
   const katman = svg.querySelector('.k-parca');

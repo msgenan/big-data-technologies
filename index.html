@@ -84,14 +84,19 @@
     <h2 class="t-title measure" data-motion="line-rise" data-delay=".1">Veri dokuz ayrı yerde; bizden tek bir platform istendi</h2>
     <div class="grid-3 vaka" data-motion="stagger" data-child=".vk" data-gap=".2" data-delay=".5">
       <div class="vk kart"><p class="vk-ad">Şirket</p>
-        <p><span class="t-num" data-num="v.fabrika"></span> fabrika, <span class="t-num" data-num="v.hat"></span> üretim hattı</p><p><span class="t-num" data-num="v.arac"></span> soğutuculu araç</p><p><span class="t-num" data-num="v.temsilci"></span> satış temsilcisi</p>
-        <p><span class="t-num" data-num="v.nokta"></span> satış noktası, <span class="t-num" data-num="v.zincir"></span> zincir</p><p><span class="t-num" data-num="v.sku"></span> ürün (SKU)</p></div>
+        <div class="olcek">
+          <p><b data-num="v.fabrika"></b><span>fabrika</span></p><p><b data-num="v.hat"></b><span>üretim hattı</span></p>
+          <p><b data-num="v.arac"></b><span>soğutuculu araç</span></p><p><b data-num="v.temsilci"></b><span>satış temsilcisi</span></p>
+          <p><b data-num="v.nokta"></b><span>satış noktası</span></p><p><b data-num="v.zincir"></b><span>zincir</span></p>
+          <p><b data-num="v.sku"></b><span>ürün (SKU)</span></p>
+        </div></div>
       <div class="vk kart"><p class="vk-ad">Kısıtlar</p>
         <p>Ham veri en az <span class="t-num" data-num="dep.ham"></span> yıl, mali kayıt <span class="t-num" data-num="kv.mali"></span> yıl</p><p>Konum ve bakkal bilgisi KVKK kapsamında</p>
         <p>Sezonda günlük hacim <span class="t-num" data-raw>4</span> katı</p><p>Her zincirin ürün kodu farklı</p><p>Eski Hadoop kümesi ve veri ambarı</p></div>
       <div class="vk kart vk-ist"><p class="vk-ad">Bu denetimde</p>
         <p>Yönergenin istediği: <b>tek sayfalık mimari taslak</b> ve <b>hacim hesabı</b>.</p>
-        <p>Biz ilk üç katmanı ayrıntılı getirdik: <b>kaynak, alım, depolama</b>.</p></div>
+        <p>Biz ilk üç katmanı ayrıntılı getirdik: <b>kaynak, alım, depolama</b>.</p>
+        <div class="duraklar"><p><b>Raf</b> kaynak · Sefa</p><p><b>Yol</b> alım · Sabit</p><p><b>Depo</b> depolama · Zeynep</p></div></div>
     </div>
     <p class="src" data-raw>Kaynak: Vize ödevi yönergesi, Vaka A ve 5.3 Ara denetim.</p>
     <aside class="notes">KONUŞAN: Sefa. Vakamız TazeRota: süt ürünü, atıştırmalık ve içecek üreten, Türkiye geneline soğuk zincirle dağıtan bir hızlı tüketim şirketi. Ölçeği soldaki kartta: altı fabrika, bin yüz soğutuculu araç, iki bin dört yüz temsilci, yüz seksen beş bin satış noktası. Verisi <b>dokuz ayrı kaynakta</b>: fabrika sensörleri, araçlar, temsilcilerin el terminalleri, zincir marketlerin satış dosyaları... Ortadaki kartta kısıtlar: ham veri üç yıl saklanacak, kişisel veri var, sezonda hacim dört katına çıkıyor, her zincirin ürün kodu farklı. Yönerge bu denetimde <b>mimari taslak ve hacim hesabı</b> istiyor; biz ilk üç katmanı, kaynak, alım ve depolamayı ayrıntılı getirdik.</aside>
@@ -355,7 +360,7 @@
 
   <section class="slide bare foto" id="kafka" data-title="Kafka bölüm sayısı" data-export="image" data-duration="65" data-transition="fade" data-rota="alim">
     <div class="sahne k-kamera" data-motion="kamera" data-kamera-from="translate(0px, 20px) rotate(-7deg) scale(1.56)" data-dur="3">
-      <img class="havadan" src="medya/derece/kavsak.jpg" alt="">
+      <img class="havadan" src="medya/derece/kavsak-yol.jpg" alt="">
     </div>
     <div class="sis sis-ust"></div>
     <div class="sahne ust k-kamera" data-motion="kamera" data-kamera-from="translate(0px, 20px) rotate(-7deg) scale(1.56)" data-dur="3">
@@ -363,8 +368,8 @@
         <g class="k-seritler"></g><g class="k-lag"></g><g class="k-parca"></g><g class="k-gorevler"></g>
       </svg>
     </div>
-    <div class="k-flink" aria-hidden="true"></div>
-    <p class="k-flink-et">Flink</p>
+    <div class="k-flink" id="k-flink" aria-label="Flink görevleri"></div>
+    <p class="k-flink-et">Flink · <span data-num="k.gorev"></span> görev</p>
     <p class="istenen" data-raw><b>İstenen</b> G4: konu, bölüm sayısı, anahtar, saklama; bölüm sayısını tepe hızdan türet</p>
     <div class="sekme"><b>Muhammed Sabit Genan</b><span>Veri Mühendisi</span></div>
     <p class="t-kicker" data-motion="rise">Katman 2 · Kafka konuları</p>
@@ -584,6 +589,7 @@
         <p class="nk-tur">Anahtar-değer · erişilebilirlik</p><p class="nk-ad">Redis</p>
         <p class="nk-ana">Soğuk zincir alarmı için her aracın <b>son durumu</b>.</p>
         <p class="nk-k">Anahtar: <code>arac_id</code>. Erişilebilirlik öncelikli: çökerse durum Kafka'dan yeniden kurulur.</p>
+        <div class="zincir-c"><span>Kafka</span><i>akış</i><span>Flink</span><i>son durum</i><span>Redis</span><i>alarm</i><span>≤ <b data-num="h.i3"></b> sn</span></div>
       </div>
       <div class="nk kart" data-step="2">
         <p class="nk-tur">Çizge · tutarlılık</p><p class="nk-ad">Neo4j</p>
@@ -629,7 +635,7 @@
     <div class="sekme"><b>Zeynep Berfe Koçak</b><span>Analitik ve Yönetişim</span></div>
     <p class="t-kicker" data-motion="rise">Güvenlik ve KVKK</p>
     <h2 class="t-title" data-motion="line-rise" data-delay=".1">Kişisel veri ilk katmanda korunur</h2>
-    <div class="grid-3 guv" data-motion="stagger" data-child=".gk" data-gap=".18" data-delay=".5">
+    <div class="guv" data-motion="stagger" data-child=".gk" data-gap=".18" data-delay=".5">
       <div class="gk kart"><p class="gk-no" data-raw>Katman 1</p><p class="gk-ad">Kaynakta</p><p>Her cihaz sertifikayla tanınır; sertifikasız bağlanamaz.</p><svg class="yuz" viewBox="0 0 440 170" aria-label="Raf fotoğrafında yüzün bulanıklaştırılması">
           <defs><filter id="bulanik" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur id="bulanik-d" stdDeviation="9"/></filter></defs>
           <rect class="raf-z" x="0" y="0" width="440" height="170" rx="10"/>

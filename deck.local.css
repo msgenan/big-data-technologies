@@ -129,10 +129,10 @@ body { font-variant-numeric: normal; }
 .sema .kt-alt { font: 400 22px var(--f-body); fill: var(--ink-2); }
 .sema .ok { fill: none; stroke: var(--ink-2); stroke-width: 2; }
 .sema .uc { fill: var(--ink-2); }
-.sema .ok-et { font: 700 20px var(--f-body); fill: var(--ink-2); paint-order: stroke; stroke: var(--paper); stroke-width: 7px; }
+.sema .ok-et { font: 700 22px var(--f-body); fill: var(--ink-2); paint-order: stroke; stroke: var(--paper); stroke-width: 7px; }
 .sema .ok-k { fill: none; stroke: var(--pen); stroke-width: 16; stroke-opacity: .45; stroke-linecap: round; }
 .sema .uc-k { fill: var(--pen); fill-opacity: .85; }
-.sema .sutun { font: 700 20px var(--f-body); fill: var(--ink-2); letter-spacing: .14em; text-transform: uppercase; }
+.sema .sutun { font: 700 22px var(--f-body); fill: var(--ink-2); letter-spacing: .14em; text-transform: uppercase; }
 .sema .parcacik circle { fill: var(--pen); }
 .sema .parcacik rect { fill: var(--steel); }
 .sema .parcacik .tepe { fill: var(--bad); }
@@ -483,9 +483,10 @@ html.deck-static .isaret .halka, html.deck-render .isaret .halka { animation: no
 #k-yol .k-parca circle.tepe { fill: #f2b24c; }
 #k-yol .gorev { fill: #5cc8c9; stroke: #0e1a2b; stroke-width: .8; }
 #kafka.k-durdu #k-yol .gorev { fill: #8497ab; }
-.k-flink { position: absolute; left: 1716px; top: 486px; width: 70px; height: 156px; border: 3px solid #f4f7f9; border-radius: 14px;
+.k-flink { position: absolute; left: 1708px; top: 486px; width: 86px; height: 156px; border: 3px solid #f4f7f9; border-radius: 14px;
+  background: rgba(14, 26, 43, .55); display: flex; flex-direction: column; justify-content: center; gap: 4px; padding: 0 12px;
   box-shadow: 0 0 0 1px rgba(14, 26, 43, .35), 0 8px 22px rgba(14, 26, 43, .35); }
-.k-flink-et { position: absolute; left: 1650px; top: 652px; width: 136px; text-align: right; font: 700 26px/1 var(--f-body); color: #f4f7f9;
+.k-flink-et { position: absolute; left: 1560px; top: 656px; width: 234px; text-align: right; font: 700 26px/1 var(--f-body); color: #f4f7f9;
   text-shadow: 0 1px 8px rgba(14, 26, 43, .8); }
 .k-konu { left: var(--pad-l); top: 676px; }
 .k-durum { left: 760px; top: 676px; min-width: 480px; padding: 12px 20px 14px; border-top-color: var(--bad); }
@@ -522,3 +523,36 @@ html.deck-static .isaret .halka, html.deck-render .isaret .halka { animation: no
 @media print {
   .slide.foto .cam, .slide.foto .etiket, .slide.foto .raf-et, .slide.foto .rota { background: rgba(244, 247, 249, .95) !important; }
 }
+
+/* Flink görevleri (kafka-sahne.js) */
+.k-flink i { display: block; height: 10px; border-radius: 3px; background: #5cc8c9; }
+#kafka.k-durdu .k-flink i { background: #8497ab; }
+
+/* Zeminli slaytlar: üstte koyu-açık ayrımı yerine düzgün tek bir sis örtüsü */
+.slide.zeminli > .sis-ust { background: linear-gradient(180deg, rgba(240, 244, 247, .78) 0, rgba(240, 244, 247, .62) 340px, rgba(240, 244, 247, .5) 100%); }
+.slide.zeminli > .sis-alt { display: none; }
+
+/* Vaka: ölçek rakamları, duraklar */
+.vaka { align-items: start; }
+.olcek { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; align-items: baseline; }
+.olcek p { display: contents; }
+.olcek b { font: 400 40px/1.05 var(--f-figure); color: var(--ink); text-align: right; }
+.olcek span { font: 400 27px/1.2 var(--f-body); color: var(--ink-2); }
+.duraklar { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; padding-top: 18px; border-top: 1.5px solid rgba(154, 90, 0, .25); }
+.duraklar p { position: relative; padding-left: 26px; font: 400 27px/1.2 var(--f-body); color: var(--ink-2); }
+.duraklar p::before { content: ""; position: absolute; left: 0; top: 10px; width: 12px; height: 12px; border-radius: 50%; background: var(--pen); }
+.duraklar b { color: var(--ink); margin-right: 6px; }
+
+/* NoSQL: kartlar içeriğe göre, Redis'te operasyonel yol */
+.nosql { align-items: start; }
+
+/* Güvenlik: sol kart (kaynak, yüz bulanıklaştırma) uzun; alım ve depolama sağda üst üste */
+.guv { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 24px 32px; margin-top: 36px; }
+.guv > .gk:first-child { grid-row: span 2; }
+.guv .yuz { max-width: 560px; }
+
+/* Mimari şema: kart biraz küçülür, yol notu şemanın altında kendi satırında */
+#sema .sema { width: 1542px; height: 527px; }
+#sema .sema-yol { top: 862px; bottom: auto; left: 140px; right: auto; padding: 6px 18px; font-size: 27px; }
+#sema .secmedik.sabit { bottom: 94px; }
+.zincir-c span b { font: inherit; }
