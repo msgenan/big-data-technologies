@@ -1,0 +1,41 @@
+/* Motion library: helper styles only. Every movement is a Web Animation started from motion.js,
+   so the final state is plain CSS (print, export and reduced motion need nothing extra) and every frame is seekable. */
+
+[data-motion="grow"] { transform-origin: 0 50%; }
+[data-motion="grow"][data-axis="y"] { transform-origin: 50% 100%; }
+[data-motion="focus"], [data-motion="blur-in"] { will-change: filter, opacity; }
+
+/* line-rise: words inside a line mask (built only when animating live) */
+.mw { display: inline-block; overflow: hidden; vertical-align: top; padding: 0 .04em .14em; margin: 0 -.04em -.14em; }
+.mw > .mw-i { display: inline-block; }
+.mw.nest { overflow: visible; }
+
+/* word wheel: the active word gives the width, the leaving word rolls out above it */
+.wheel { display: inline-block; position: relative; vertical-align: bottom; white-space: nowrap; overflow: hidden; color: var(--pen);
+  padding-bottom: .1em; margin-bottom: -.1em; }
+.wheel > * { font-style: normal; display: none; }
+.wheel > .is-on { display: inline-block; }
+.wheel > .is-out { display: inline-block; position: absolute; left: 0; top: 0; }
+
+/* pen-mark: hand-drawn ballpoint stroke around/under the element (built in every mode: it is content) */
+.has-pen { position: relative; display: inline-block; }
+.pen-svg { position: absolute; overflow: visible; pointer-events: none; fill: none; stroke: var(--pen); stroke-linecap: round; stroke-linejoin: round; }
+
+/* marker: highlighter wash behind the text */
+.mk { background-image: linear-gradient(var(--marker), var(--marker)); background-repeat: no-repeat; background-position: 0 88%;
+  background-size: 100% 46%; -webkit-box-decoration-break: clone; box-decoration-break: clone; padding: 0 .08em; margin: 0 -.08em; }
+
+/* karaoke: words light up as they are spoken */
+.kw { transition: color .18s ease, background-color .18s ease; border-radius: .12em; }
+.karaoke-live .kw { color: color-mix(in srgb, var(--ink) 38%, transparent); }
+.karaoke-live .kw.is-read { color: var(--ink); }
+.karaoke-live .kw.is-now { color: var(--pen); background: var(--pen-wash); }
+
+/* wall: grid of tiles; dim it with a .veil child on a later step */
+.wall { position: relative; display: grid; gap: 16px; }
+.wall > .veil { position: absolute; inset: -8px; background: var(--paper); opacity: .66; pointer-events: none; }
+
+/* particle field (drift) and camera push live outside the slide content */
+.deck-fx { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 3; }
+
+@media (prefers-reduced-motion: reduce) { .kw { transition: none; } }
