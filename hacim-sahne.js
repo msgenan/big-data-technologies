@@ -26,7 +26,6 @@
     const set = (k, metin) => sl.querySelectorAll(`[data-num="${k}"]`).forEach((e) => { e.textContent = metin; });
     set('hacim.ham', F.n0(sonuc.ham)); set('hacim.a4_pay', F.p0(sonuc.a4)); set('hacim.kopya3', F.n0(sonuc.kopya3));
     set('hacim.ec', F.n0(sonuc.ec)); set('hacim.ec_fark', F.n0(sonuc.fark)); set('hacim.mevsim', F.n2(sonuc.mevsim)); set('hacim.buyume', F.n2(sonuc.b3));
-    set('ham.A4', F.n1(sonuc.kay.A4));   // raftaki etiket de kaydırıcıyla güncellenir
     const enBuyuk = olcekli ? EN_UST : Math.max(...Object.values(sonuc.kay));
     sl.querySelectorAll('.chart-bar .cb-row').forEach((row) => {
       const k = row.querySelector('.cb-val').dataset.num.replace('ham.', '');

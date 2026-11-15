@@ -7,7 +7,7 @@
   if (!svg || !window.Deck) return;
   const NS = 'http://www.w3.org/2000/svg';
   const urunler = svg.querySelector('.urunler'), d = svg.querySelector('#bulanik-d'), kutu = svg.querySelector('.yuz-kutu');
-  const renk = ['#1c7c86', '#8497ab', '#c77a12', '#d9b26f', '#46566b', '#a9c4cc'];
+  const renk = ['#2440d8', '#9fb0ee', '#d26a4a', '#5aa37a', '#e8b84a', '#7b86a6'];
   [[12, 46], [12, 98], [12, 150]].forEach(([x0, y], raf) => {
     let x = x0;
     while (x < 420) {

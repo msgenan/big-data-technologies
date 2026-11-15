@@ -28,7 +28,7 @@
 
   function izinli(adim) {
     if (adim < 2) return null;
-    const g = svg.querySelector(`.vurgu[data-step="${adim}-${adim}"]`);
+    const g = svg.querySelector(`.vurgu[data-step="${adim}-${adim}"], .vurgu[data-step="${adim}"]`);
     return g ? new Set(Array.from(g.querySelectorAll('path')).map((p) => p.dataset.a + '>' + p.dataset.b)) : null;
   }
   function yeni(k, toplu, tepe) {

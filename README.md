@@ -4,7 +4,7 @@ YBS025 Büyük Veri Teknolojileri, Vaka A, ara denetim sunumu (İstinye Ünivers
 Ekip: Sefa Ünal (Veri Mimarı), Muhammed Sabit Genan (Veri Mühendisi), Zeynep Berfe Koçak (Analitik ve Yönetişim).
 
 Sunum: https://msgenan.github.io/big-data-technologies/
-İlk sürüm (kareli defter görünümü): https://msgenan.github.io/big-data-technologies/v1/
+Denenen ikinci görünüm ("Raftan yola, yoldan rafa"): https://msgenan.github.io/big-data-technologies/v2/
 
 ## Kullanım
 - Sağ ok, boşluk ya da tıklayıcı: sonraki adım. Sol ok: geri.
@@ -15,7 +15,4 @@ Sunum kodla yazılmış bir HTML destesidir, ağ bağlantısı gerektirmez: klas
 Slaytlardaki her sayı `values.js` dosyasından okunur; ölçümler `olcum.js` (Kafka/MQTT güvenlik ölçümü), demo kaydı `demo_kayit.js`
 (Docker'da gerçek koşu, 10 Kasım 2026).
 
-Görünüm "Raftan yola, yoldan rafa": deste soğuk zincirde tek bir yolculuk (raf, yol, depo); fotoğraflar diyagramın kendisidir
-(aracın ekranı A5 kaynağı, otoyolun şeritleri Kafka bölümleri, deponun katları ve koridoru depolama katmanları).
-Fotoğraflar tek bir renk derecesinden geçer (`araclar/derece.sh`).
-Yazı tipleri Newsreader ve Instrument Sans, SIL Open Font License ile dağıtılır (`fonts/`, `THIRD_PARTY.md`).
+Yazı tipleri SIL Open Font License ile dağıtılır (`fonts/`, `THIRD_PARTY.md`).
